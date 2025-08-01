@@ -3,9 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PS4Wellbeing offers transformative wellbeing solutions through corporate training and individual coaching, rooted in positive psychology, emotional intelligence, and resilience-building.">
+    <meta name="keywords" content="wellbeing, corporate training, coaching, positive psychology, emotional intelligence, resilience, mental health, employee wellness, PS4Wellbeing">
+    <meta name="author" content="PS4Wellbeing">
     <title>PS4Wellbeing - Transformative Wellbeing Solutions</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
     <style>
-        /* Base Styles */
+        /* CSS Variables for Easy Theme Change */
+        :root {
+            --main-color: #778f7f;
+            --secondary-color: #94a896;
+            --accent-color: #b1c1b2;
+            --text-color: #333;
+            --light-bg-color: #f8f9fa;
+            --card-bg-color: #ffffff;
+            --light-text-color: #fff;
+        }
+
+        /* Base Styles and Layout */
         * {
             margin: 0;
             padding: 0;
@@ -15,9 +32,9 @@
         body {
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: var(--text-color);
             overflow-x: hidden;
-            font-size: 16px; /* Base font size */
+            font-size: 16px;
         }
 
         .container {
@@ -47,7 +64,7 @@
         .logo {
             font-size: 1.8rem;
             font-weight: bold;
-            color: #778f7f;
+            color: var(--main-color);
             display: flex;
             align-items: center;
             gap: 0.5rem;
@@ -69,14 +86,14 @@
 
         .nav-links a {
             text-decoration: none;
-            color: #333;
+            color: var(--text-color);
             font-weight: 500;
             transition: color 0.3s ease;
             position: relative;
         }
 
         .nav-links a:hover {
-            color: #778f7f;
+            color: var(--main-color);
         }
 
         .nav-links a::after {
@@ -86,7 +103,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: linear-gradient(45deg, #778f7f, #94a896);
+            background: linear-gradient(45deg, var(--main-color), var(--secondary-color));
             transition: width 0.3s ease;
         }
 
@@ -96,39 +113,17 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #778f7f 0%, #94a896 50%, #b1c1b2 100%);
-            color: white;
+            background: linear-gradient(135deg, var(--main-color) 0%, var(--secondary-color) 50%, var(--accent-color) 100%);
+            color: var(--light-text-color);
             padding: 150px 0 100px;
             text-align: center;
             position: relative;
             overflow: hidden;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
-            animation: float 20s infinite linear;
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0) translateX(0); }
-            100% { transform: translateY(-100px) translateX(-100px); }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-
         .hero h1 {
             font-size: clamp(2rem, 5vw, 3.5rem);
             margin-bottom: 1rem;
-            animation: fadeInUp 1s ease;
         }
 
         .hero p {
@@ -137,50 +132,40 @@
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
-            animation: fadeInUp 1s ease 0.3s both;
         }
 
         .cta-button {
             display: inline-block;
             background: rgba(255, 255, 255, 0.2);
-            color: white;
+            color: var(--light-text-color);
             padding: 15px 30px;
             text-decoration: none;
             border-radius: 50px;
             font-weight: bold;
             border: 2px solid rgba(255, 255, 255, 0.3);
             transition: all 0.3s ease;
-            animation: fadeInUp 1s ease 0.6s both;
         }
 
         .cta-button:hover {
-            background: white;
-            color: #778f7f;
+            background: var(--card-bg-color);
+            color: var(--main-color);
             transform: translateY(-2px);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Services Section */
-        .services {
+        
+        /* General Sections Styling */
+        .services, .wellness-packages, .why-choose {
             padding: 100px 0;
-            background: #f8f9fa;
+            background: var(--light-bg-color);
+        }
+        .wellness-packages {
+            background: var(--card-bg-color);
         }
 
         .section-title {
             text-align: center;
             font-size: clamp(2rem, 4vw, 2.5rem);
-            color: #778f7f;
+            color: var(--main-color);
             margin-bottom: 3rem;
             position: relative;
         }
@@ -193,13 +178,13 @@
             transform: translateX(-50%);
             width: 80px;
             height: 3px;
-            background: linear-gradient(45deg, #778f7f, #94a896);
+            background: linear-gradient(45deg, var(--main-color), var(--secondary-color));
             border-radius: 2px;
         }
 
         .services-grid, .packages-grid, .research-grid, .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
             margin-top: 4rem;
         }
@@ -209,9 +194,9 @@
             gap: 1rem;
         }
 
+        /* Services Card Styling */
         .service-card {
-            background: white;
-            padding: 2rem;
+            background: var(--card-bg-color);
             border-radius: 15px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
@@ -219,46 +204,40 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
         }
         
-        .service-card p {
-            flex-grow: 1;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(45deg, #778f7f, #94a896);
-        }
-
         .service-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
         }
 
-        .service-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            display: block;
+        .service-card-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+	    border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+
         }
 
-        .service-card h3 {
-            color: #778f7f;
+        .service-card-content {
+            padding: 2rem;
+            flex-grow: 1;
+        }
+        
+        .service-card-content h3 {
+            color: var(--main-color);
             margin-bottom: 1rem;
             font-size: 1.5rem;
         }
-
-        /* Wellness Packages */
-        .wellness-packages {
-            padding: 100px 0;
-            background: white;
+        
+        .service-card-content p {
+            margin-bottom: 1rem;
         }
 
+        /* Package Card Styling */
         .package-card {
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             padding: 2rem;
@@ -271,10 +250,6 @@
             align-items: flex-start;
         }
         
-        .package-card p {
-            flex-grow: 1;
-        }
-
         .package-card:hover {
             transform: scale(1.02);
             box-shadow: 0 20px 40px rgba(119, 143, 127, 0.1);
@@ -287,7 +262,7 @@
         }
 
         .package-card h3 {
-            color: #778f7f;
+            color: var(--main-color);
             margin-bottom: 1rem;
             font-size: 1.4rem;
         }
@@ -308,15 +283,15 @@
             content: '✓';
             position: absolute;
             left: 0;
-            color: #778f7f;
+            color: var(--main-color);
             font-weight: bold;
         }
 
         /* Research Section */
         .research {
             padding: 100px 0;
-            background: linear-gradient(135deg, #778f7f 0%, #94a896 100%);
-            color: white;
+            background: linear-gradient(135deg, var(--main-color) 0%, var(--secondary-color) 100%);
+            color: var(--light-text-color);
             text-align: center;
         }
 
@@ -333,7 +308,7 @@
             font-size: clamp(2rem, 6vw, 3rem);
             font-weight: bold;
             margin-bottom: 0.5rem;
-            color: #fff;
+            color: var(--light-text-color);
         }
 
         .stat-label {
@@ -342,15 +317,10 @@
         }
 
         /* Why Choose Us */
-        .why-choose {
-            padding: 100px 0;
-            background: #f8f9fa;
-        }
-
         .feature-item {
             text-align: center;
             padding: 2rem;
-            background: white;
+            background: var(--card-bg-color);
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
@@ -367,7 +337,7 @@
             display: block;
         }
 
-        /* New Footer Section Styling */
+        /* Footer Section Styling */
         .new-footer-section {
             background-color: #f0f4f2;
             padding: 60px 0;
@@ -375,16 +345,16 @@
         }
         
         .new-footer-section-bar {
-            background: linear-gradient(135deg, #778f7f 0%, #94a896 50%, #b1c1b2 100%); 
+            background: linear-gradient(135deg, var(--main-color) 0%, var(--secondary-color) 50%, var(--accent-color) 100%);
             padding: 100px 0;
             text-align: center;
-            color: #fff;
+            color: var(--light-text-color);
         }
 
         .new-footer-section h3 {
             font-size: clamp(1.2rem, 3vw, 1.5rem);
             margin-bottom: 1rem;
-            color: #778f7f;
+            color: var(--main-color);
         }
 
         .ps4wellbeing-logo {
@@ -425,13 +395,10 @@
         .social-icons a {
             display: inline-block;
             margin-right: 10px;
-            color: #778f7f;
+            color: var(--main-color);
             font-size: 1.5rem;
             transition: transform 0.3s ease;
         }
-        
-        /* Font Awesome icons (if needed) */
-        @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
 
         .social-icons a:hover {
             transform: translateY(-3px);
@@ -445,7 +412,7 @@
         }
 
         .new-footer-links h4 {
-            color: #778f7f;
+            color: var(--main-color);
             margin-bottom: 1rem;
             font-size: clamp(1rem, 2vw, 1.2rem);
         }
@@ -463,17 +430,17 @@
         }
 
         .new-footer-links a:hover {
-            color: #778f7f;
+            color: var(--main-color);
         }
         
         .new-footer-links li {
             margin-bottom: 0.5rem;
         }
 
-        /* Footer */
+        /* Main Footer */
         footer {
-            background: #778f7f;
-            color: white;
+            background: var(--main-color);
+            color: var(--light-text-color);
             padding: 50px 0 20px;
             text-align: center;
         }
@@ -487,7 +454,7 @@
 
         .footer-section h4 {
             margin-bottom: 1rem;
-            color: #b1c1b2;
+            color: var(--accent-color);
         }
 
         .footer-bottom {
@@ -496,17 +463,16 @@
             margin-top: 2rem;
         }
 
-        /* Mobile Menu */
+        /* Mobile Menu and Responsive Adjustments */
         .mobile-menu-btn {
             display: none;
             background: none;
             border: none;
             font-size: 1.5rem;
             cursor: pointer;
-            color: #778f7f;
+            color: var(--main-color);
         }
-
-        /* Responsive Design */
+        
         @media (max-width: 768px) {
             header {
                 padding: 0.8rem 0;
@@ -520,7 +486,7 @@
                 top: 100%;
                 left: 0;
                 right: 0;
-                background: white;
+                background: var(--card-bg-color);
                 flex-direction: column;
                 padding: 1rem;
                 box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -565,20 +531,15 @@
                 margin-bottom: 1rem;
             }
         }
-        
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
 
         /* Loading animation */
-        .fade-in {
+        [data-animated] {
             opacity: 0;
             transform: translateY(30px);
             transition: all 0.6s ease;
         }
 
-        .fade-in.visible {
+        [data-animated].visible {
             opacity: 1;
             transform: translateY(0);
         }
@@ -587,11 +548,11 @@
 <body>
     <header>
         <nav class="container">
-            <a href="#home" class="logo">
+            <a href="#home" class="logo" aria-label="PS4Wellbeing Home">
                 <img src="image/logo.png" alt="PS4Wellbeing Logo" class="logo-image">
                 <span>PS4Wellbeing</span>
             </a>
-            <ul class="nav-links">
+            <ul class="nav-links" id="mobile-menu-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#packages">Programs</a></li>
@@ -599,16 +560,16 @@
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="tel:+917994144334">+91 79941 44334</a></li>
             </ul>
-            <button class="mobile-menu-btn">☰</button>
+            <button class="mobile-menu-btn" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobile-menu-links">☰</button>
         </nav>
     </header>
 
     <main>
         <section id="home" class="hero">
             <div class="container hero-content">
-                <h1>Positive Synergy 4 Wellbeing</h1>
-                <p>Transformative programs for individuals and organizations. Helping people thrive emotionally, mentally, socially, and professionally through evidence-based wellbeing solutions.</p>
-                <a href="#services" class="cta-button">Explore Our Services</a>
+                <h1 data-animated>Positive Synergy 4 Wellbeing</h1>
+                <p data-animated>Transformative programs for individuals and organizations. Helping people thrive emotionally, mentally, socially, and professionally through evidence-based wellbeing solutions.</p>
+                <a href="#services" class="cta-button" data-animated>Explore Our Services</a>
             </div>
         </section>
 
@@ -616,27 +577,31 @@
             <div class="container">
                 <h2 class="section-title">Our Services</h2>
                 <div class="services-grid">
-                    <div class="service-card fade-in">
-                        <span class="service-icon">🏢</span>
-                        <h3>Corporate Training</h3>
-                        <p>We partner with organizations to deliver immersive wellbeing workshops that boost employee engagement, resilience, and emotional intelligence.</p>
-                        <ul class="package-features">
-                            <li>On-site or virtual workshops</li>
-                            <li>Reflective exercises and workbooks</li>
-                            <li>Leadership development modules</li>
-                            <li>Wellbeing strategy consulting</li>
-                        </ul>
+                    <div class="service-card" data-animated>
+                        <img src="image/1.jpg" alt="A group of employees in a corporate training session" class="service-card-image" loading="lazy">
+                        <div class="service-card-content">
+                            <h3>Corporate Training</h3>
+                            <p>We partner with organizations to deliver immersive wellbeing workshops that boost employee engagement, resilience, and emotional intelligence.</p>
+                            <ul class="package-features">
+                                <li>On-site or virtual workshops</li>
+                                <li>Reflective exercises and workbooks</li>
+                                <li>Leadership development modules</li>
+                                <li>Wellbeing strategy consulting</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="service-card fade-in">
-                        <span class="service-icon">🙋</span>
-                        <h3>Individual Coaching</h3>
-                        <p>Our certified coaches offer personalized support to help individuals navigate life's challenges and achieve their fullest potential.</p>
-                        <ul class="package-features">
-                            <li>Navigate life transitions</li>
-                            <li>Build emotional resilience</li>
-                            <li>Improve relationships and self-awareness</li>
-                            <li>Align personal values with professional goals</li>
-                        </ul>
+                    <div class="service-card" data-animated>
+                        <img src="image/2.jpg" alt="A coach and a client having an individual coaching session" class="service-card-image" loading="lazy">
+                        <div class="service-card-content">
+                            <h3>Individual Coaching</h3>
+                            <p>Our certified coaches offer personalized support to help individuals navigate life's challenges and achieve their fullest potential.</p>
+                            <ul class="package-features">
+                                <li>Navigate life transitions</li>
+                                <li>Build emotional resilience</li>
+                                <li>Improve relationships and self-awareness</li>
+                                <li>Align personal values with professional goals</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -646,8 +611,8 @@
             <div class="container">
                 <h2 class="section-title">Our Signature Wellness Packages</h2>
                 <div class="packages-grid">
-                    <div class="package-card fade-in">
-                        <span class="package-icon">🧘</span>
+                    <div class="package-card" data-animated>
+                        <span class="package-icon" aria-hidden="true">🧘</span>
                         <h3>Wellness Foundations</h3>
                         <p>Based on the PERMA model by Dr. Martin Seligman, this module helps individuals build a flourishing life.</p>
                         <ul class="package-features">
@@ -659,8 +624,8 @@
                             <li>Accomplishment: Goal setting and progress</li>
                         </ul>
                     </div>
-                    <div class="package-card fade-in">
-                        <span class="package-icon">🌈</span>
+                    <div class="package-card" data-animated>
+                        <span class="package-icon" aria-hidden="true">🌈</span>
                         <h3>Positive Psychology</h3>
                         <p>Grounded in the science of human flourishing and evidence-based practices for lasting wellbeing.</p>
                         <ul class="package-features">
@@ -672,8 +637,8 @@
                             <li>Evaluation & Future Visioning</li>
                         </ul>
                     </div>
-                    <div class="package-card fade-in">
-                        <span class="package-icon">💬</span>
+                    <div class="package-card" data-animated>
+                        <span class="package-icon" aria-hidden="true">💬</span>
                         <h3>Emotional Intelligence</h3>
                         <p>Inspired by Daniel Goleman's framework for understanding and managing emotions effectively.</p>
                         <ul class="package-features">
@@ -685,8 +650,8 @@
                             <li>Building Your Personal EI Plan</li>
                         </ul>
                     </div>
-                    <div class="package-card fade-in">
-                        <span class="package-icon">🧘</span>
+                    <div class="package-card" data-animated>
+                        <span class="package-icon" aria-hidden="true">🧘</span>
                         <h3>Mindfulness Mastery</h3>
                         <p>Backed by research from Oxford and Harvard, integrating mindfulness into daily life and work.</p>
                         <ul class="package-features">
@@ -698,8 +663,8 @@
                             <li>Formal Meditation Practices</li>
                         </ul>
                     </div>
-                    <div class="package-card fade-in">
-                        <span class="package-icon">💼</span>
+                    <div class="package-card" data-animated>
+                        <span class="package-icon" aria-hidden="true">💼</span>
                         <h3>Job Crafting</h3>
                         <p>Based on research by Wrzesniewski & Dutton to redesign your work for greater satisfaction.</p>
                         <ul class="package-features">
@@ -710,8 +675,8 @@
                             <li>Action Plan & Reflection</li>
                         </ul>
                     </div>
-                    <div class="package-card fade-in">
-                        <span class="package-icon">🛡️</span>
+                    <div class="package-card" data-animated>
+                        <span class="package-icon" aria-hidden="true">🛡️</span>
                         <h3>Resilience Building</h3>
                         <p>Informed by the Job Demands–Resources model for navigating adversity and stress.</p>
                         <ul class="package-features">
@@ -730,19 +695,19 @@
             <div class="container">
                 <h2 class="section-title" style="color: white;">Why Wellbeing Matters—The Research</h2>
                 <div class="research-grid">
-                    <div class="research-card fade-in">
+                    <div class="research-card" data-animated>
                         <div class="stat-number">21%</div>
                         <div class="stat-label">Higher Productivity</div>
                     </div>
-                    <div class="research-card fade-in">
+                    <div class="research-card" data-animated>
                         <div class="stat-number">41%</div>
                         <div class="stat-label">Lower Absenteeism</div>
                     </div>
-                    <div class="research-card fade-in">
+                    <div class="research-card" data-animated>
                         <div class="stat-number">24%</div>
                         <div class="stat-label">Lower Turnover</div>
                     </div>
-                    <div class="research-card fade-in">
+                    <div class="research-card" data-animated>
                         <div class="stat-number">17%</div>
                         <div class="stat-label">Higher Profitability</div>
                     </div>
@@ -758,23 +723,23 @@
             <div class="container">
                 <h2 class="section-title">Why Choose PS4Wellbeing?</h2>
                 <div class="features-grid">
-                    <div class="feature-item fade-in">
-                        <span class="feature-icon">🔬</span>
+                    <div class="feature-item" data-animated>
+                        <span class="feature-icon" aria-hidden="true">🔬</span>
                         <h3>Evidence-Based</h3>
                         <p>All our programs are backed by global research and proven methodologies from leading institutions.</p>
                     </div>
-                    <div class="feature-item fade-in">
-                        <span class="feature-icon">🎯</span>
+                    <div class="feature-item" data-animated>
+                        <span class="feature-icon" aria-hidden="true">🎯</span>
                         <h3>Customizable</h3>
                         <p>Tailored solutions to suit individual and organizational needs with flexible delivery options.</p>
                     </div>
-                    <div class="feature-item fade-in">
-                        <span class="feature-icon">💡</span>
+                    <div class="feature-item" data-animated>
+                        <span class="feature-icon" aria-hidden="true">💡</span>
                         <h3>Engaging</h3>
                         <p>Interactive and experiential learning approaches for deeper understanding and retention.</p>
                     </div>
-                    <div class="feature-item fade-in">
-                        <span class="feature-icon">🚀</span>
+                    <div class="feature-item" data-animated>
+                        <span class="feature-icon" aria-hidden="true">🚀</span>
                         <h3>Lasting Impact</h3>
                         <p>Designed for practical application with ongoing support to ensure sustainable transformation.</p>
                     </div>
@@ -793,7 +758,7 @@
                 <div class="new-footer-main">
                     <div class="new-footer-about">
                         <a href="#home" class="ps4wellbeing-logo">
-                            <img src="image/logo.png" alt="PS4Wellbeing Logo" />
+                            <img src="image/logo.png" alt="PS4Wellbeing Logo" loading="lazy">
                         </a>
                         <p>
                             Our approach is rooted in the principles of Neuro-Linguistic Programming
@@ -832,7 +797,6 @@
                 </div>
             </div>
         </section>
-
     </main>
 
     <footer id="contact">
@@ -865,8 +829,9 @@
         // Mobile menu toggle
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const navLinks = document.querySelector('.nav-links');
-
         mobileMenuBtn.addEventListener('click', () => {
+            const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true' || false;
+            mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
             navLinks.classList.toggle('active');
         });
 
@@ -882,7 +847,10 @@
                     });
                 }
                 // Close mobile menu if open
-                navLinks.classList.remove('active');
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                }
             });
         });
 
@@ -898,33 +866,18 @@
             }
         });
 
-        // Fade in animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
+        // Fade-in animation on scroll
+        const animatedObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
+                    animatedObserver.unobserve(entry.target);
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.1 });
 
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Add hover effect to service cards
-        document.querySelectorAll('.service-card, .package-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
+        document.querySelectorAll('[data-animated]').forEach(el => {
+            animatedObserver.observe(el);
         });
 
         // Animated counter for statistics
@@ -949,7 +902,6 @@
             });
         }
 
-        // Trigger counter animation when research section is visible
         const researchSection = document.querySelector('.research');
         const researchObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -961,46 +913,6 @@
         }, { threshold: 0.3 });
 
         researchObserver.observe(researchSection);
-
-        // Add floating animation to hero background
-        const hero = document.querySelector('.hero');
-        let animationId;
-        
-        function createFloatingElement() {
-            const element = document.createElement('div');
-            element.style.cssText = `
-                position: absolute;
-                width: 4px;
-                height: 4px;
-                background: rgba(255, 255, 255, 0.3);
-                border-radius: 50%;
-                pointer-events: none;
-                left: ${Math.random() * 100}%;
-                top: 100%;
-                animation: floatUp 8s linear infinite;
-            `;
-            
-            hero.appendChild(element);
-            
-            setTimeout(() => {
-                element.remove();
-            }, 8000);
-        }
-
-        // Create floating particles periodically
-        setInterval(createFloatingElement, 500);
-
-        // Add CSS for floating animation
-        const floatingStyle = document.createElement('style');
-        floatingStyle.textContent = `
-            @keyframes floatUp {
-                to {
-                    transform: translateY(-100vh) rotate(360deg);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(floatingStyle);
     </script>
 </body>
 </html>
