@@ -8,7 +8,8 @@
     <meta name="author" content="PS4Wellbeing">
     <title>PS4Wellbeing - Transformative Wellbeing Solutions</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40B7EVh/iNqPs10a3F4L7f57W2tq/H8vM/fFfC04n4N6P4qF3p1N5e2A/H3F/V5L9B0bE15j3n0w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
     <style>
         /* CSS Variables for Easy Theme Change */
@@ -70,15 +71,16 @@
             gap: 0.5rem;
             text-decoration: none;
         }
-
+        
         .logo-image {
             height: 80px; 
             width: auto;
         }
-.logo-text-image {
-    height: 50px; /* match this to the original text height */
-    object-fit: contain;
-}
+        
+        .logo-text-image {
+            height: 50px;
+            object-fit: contain;
+        }
 
         .nav-links {
             display: flex;
@@ -221,7 +223,7 @@
             object-fit: cover;
             border-top-left-radius: 15px;
             border-top-right-radius: 15px;
-	    border-bottom-left-radius: 15px;
+ 	    border-bottom-left-radius: 15px;
             border-bottom-right-radius: 15px;
 
         }
@@ -321,6 +323,11 @@
         }
 
         /* Why Choose Us */
+        .why-choose {
+            padding: 100px 0;
+            background: var(--light-bg-color);
+        }
+
         .feature-item {
             text-align: center;
             padding: 2rem;
@@ -482,7 +489,10 @@
                 padding: 0.8rem 0;
             }
             .logo-image {
-                height: 30px;
+                height: 60px; /* Logo size on mobile */
+            }
+            .logo-text-image {
+                height: 60px;
             }
             .nav-links {
                 display: none;
@@ -553,10 +563,9 @@
     <header>
         <nav class="container">
             <a href="#home" class="logo" aria-label="PS4Wellbeing Home">
-    <img src="image/logo.png" alt="PS4Wellbeing Logo" class="logo-image">
-    <img src="image/24.png" alt="PS4Wellbeing Text" class="logo-text-image">
-</a>
-
+                <img src="image/logo.png" alt="PS4Wellbeing Logo" class="logo-image">
+                <img src="image/22.png" alt="PS4Wellbeing Text" class="logo-text-image">
+            </a>
             <ul class="nav-links" id="mobile-menu-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#services">Services</a></li>
