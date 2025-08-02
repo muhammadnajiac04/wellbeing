@@ -75,6 +75,10 @@
             height: 80px; 
             width: auto;
         }
+.logo-text-image {
+    height: 50px; /* match this to the original text height */
+    object-fit: contain;
+}
 
         .nav-links {
             display: flex;
@@ -549,9 +553,10 @@
     <header>
         <nav class="container">
             <a href="#home" class="logo" aria-label="PS4Wellbeing Home">
-                <img src="image/logo.png" alt="PS4Wellbeing Logo" class="logo-image">
-                <span>PS4Wellbeing</span>
-            </a>
+    <img src="image/logo.png" alt="PS4Wellbeing Logo" class="logo-image">
+    <img src="image/24.png" alt="PS4Wellbeing Text" class="logo-text-image">
+</a>
+
             <ul class="nav-links" id="mobile-menu-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#services">Services</a></li>
@@ -916,5 +921,3 @@
     </script>
 </body>
 </html>
-
-
