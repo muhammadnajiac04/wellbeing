@@ -6,7 +6,7 @@
     <meta name="description" content="PS4Wellbeing offers transformative wellbeing solutions through corporate training and individual coaching, rooted in positive psychology, emotional intelligence, and resilience-building.">
     <meta name="keywords" content="wellbeing, corporate training, coaching, positive psychology, emotional intelligence, resilience, mental health, employee wellness, PS4Wellbeing">
     <meta name="author" content="PS4Wellbeing">
-    <title>PS4Wellbeing - Transformative Wellbeing Solutions</title>
+    <title>PS4Well-being - Transformative Wellbeing Solutions</title>
 
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40B7EVh/iNqPs10a3F4L7f57W2tq/H8vM/fFfC04n4N6P4qF3p1N5e2A/H3F/V5L9B0bE15j3n0w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -14,9 +14,9 @@
     <style>
         /* CSS Variables for Easy Theme Change */
         :root {
-            --main-color: #778f7f;
-            --secondary-color: #94a896;
-            --accent-color: #b1c1b2;
+            --main-color: #99686E;
+            --secondary-color: #DCAE96;
+            --accent-color: #B2AC88;
             --text-color: #333;
             --light-bg-color: #f8f9fa;
             --card-bg-color: #ffffff;
@@ -30,8 +30,16 @@
             box-sizing: border-box;
         }
 
+        @font-face {
+            font-family: 'Abadi MT';
+            src: url('path/to/AbadiMT.woff2') format('woff2'),
+                 url('path/to/AbadiMT.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Abadi MT', 'Segoe UI', 'Helvetica Neue', sans-serif;
             line-height: 1.6;
             color: var(--text-color);
             overflow-x: hidden;
@@ -77,7 +85,6 @@
             width: auto;
         }
         
-    
 
         .nav-links {
             display: flex;
@@ -114,27 +121,69 @@
             width: 100%;
         }
 
-        /* Hero Section */
-        .hero {
+ /* Hero Section */
+/* Hero Section */
+.hero {
             background: linear-gradient(135deg, var(--main-color) 0%, var(--secondary-color) 50%, var(--accent-color) 100%);
             color: var(--light-text-color);
-            padding: 150px 0 100px;
+            min-height: 100vh;
             text-align: center;
             position: relative;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            padding-top: 100px;
+        }
+
+        .hero .container {
+            display: flex;
+            align-items: stretch;
+            text-align: left;
+            position: relative;
+            min-height: 500px;
+            z-index: 2; /* To ensure content is on top of the image */
+        }
+        
+        .hero-content {
+            flex: 1;
+            padding-right: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        
+        .hero-image-container {
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            width: 50%;
+            z-index: 1;
+        }
+        
+        .hero-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: 0;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2); /* A subtle shadow for depth */
         }
 
         .hero h1 {
             font-size: clamp(2rem, 5vw, 3.5rem);
             margin-bottom: 1rem;
+            color: var(--light-text-color);
         }
 
         .hero p {
             font-size: clamp(1rem, 2vw, 1.3rem);
             margin-bottom: 2rem;
             max-width: 600px;
-            margin-left: auto;
+            margin-left: 0;
             margin-right: auto;
+            color: var(--light-text-color);
         }
 
         .cta-button {
@@ -155,7 +204,6 @@
             transform: translateY(-2px);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
-        
         /* General Sections Styling */
         .services, .wellness-packages, .why-choose {
             padding: 100px 0;
@@ -185,7 +233,7 @@
             border-radius: 2px;
         }
 
-        .services-grid, .packages-grid, .research-grid, .features-grid {
+        .services-grid, .research-grid, .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
@@ -220,9 +268,6 @@
             object-fit: cover;
             border-top-left-radius: 15px;
             border-top-right-radius: 15px;
- 	    border-bottom-left-radius: 15px;
-            border-bottom-right-radius: 15px;
-
         }
 
         .service-card-content {
@@ -240,46 +285,82 @@
             margin-bottom: 1rem;
         }
 
-        /* Package Card Styling */
-        .package-card {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            padding: 2rem;
-            border-radius: 20px;
-            border: 1px solid rgba(119, 143, 127, 0.1);
-            transition: all 0.3s ease;
-            position: relative;
+        /* New Package Card Layout Styling */
+        .packages-container {
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
-        }
-        
-        .package-card:hover {
-            transform: scale(1.02);
-            box-shadow: 0 20px 40px rgba(119, 143, 127, 0.1);
+            gap: 4rem;
+            margin-top: 4rem;
         }
 
-        .package-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            display: block;
+        .package-item {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
         }
 
-        .package-card h3 {
+        .package-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .package-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .package-image {
+            flex: 0 0 450px;
+            height: 450px;
+            border-radius: 2px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .package-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .package-item:hover .package-image img {
+            transform: scale(1.05);
+        }
+
+        .package-content {
+            flex: 1;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(153, 104, 110, 0.1);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .package-content h3 {
             color: var(--main-color);
             margin-bottom: 1rem;
-            font-size: 1.4rem;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .package-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.7;
         }
 
         .package-features {
             list-style: none;
-            margin-top: 1rem;
+            margin: 0;
             padding: 0;
         }
 
         .package-features li {
-            padding: 0.3rem 0;
+            padding: 0.5rem 0;
             position: relative;
             padding-left: 1.5rem;
+            font-size: 1rem;
         }
 
         .package-features li::before {
@@ -288,6 +369,7 @@
             left: 0;
             color: var(--main-color);
             font-weight: bold;
+            font-size: 1.2rem;
         }
 
         /* Research Section */
@@ -344,7 +426,7 @@
             margin-bottom: 1rem;
             display: block;
         }
-
+        
         /* Footer Section Styling */
         .new-footer-section {
             background-color: #f0f4f2;
@@ -489,7 +571,7 @@
                 height: 60px; /* Logo size on mobile */
             }
             .logo-text-image {
-                height: 100px;
+                height: 60px;
             }
             .nav-links {
                 display: none;
@@ -531,10 +613,58 @@
             .social-icons {
                 text-align: center;
             }
+
+            /* Mobile responsive for packages */
+            .package-item, .package-item:nth-child(even) {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .package-image {
+                flex: none;
+                width: 100%;
+                max-width: 400px;
+                height: 200px;
+            }
+        }
+
+        /* Mobile menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--main-color);
+            font-size: 24px;
+            cursor: pointer;
         }
         
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: #25d366;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            z-index: 99;
+            transition: transform 0.3s;
+            overflow: hidden;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+        }
+
+        
         @media (max-width: 480px) {
-            .services-grid, .packages-grid, .research-grid, .features-grid, .footer-content {
+            .services-grid, .research-grid, .features-grid, .footer-content {
                 grid-template-columns: 1fr;
             }
             .new-footer-links div {
@@ -560,8 +690,8 @@
     <header>
         <nav class="container">
             <a href="#home" class="logo" aria-label="PS4Wellbeing Home">
-                <img src="image/logo.png" alt="PS4Wellbeing Logo" class="logo-image">
-            
+                <img src="image/logoo.png" alt="PS4Wellbeing Logo" class="logo-image">
+                
             </a>
             <ul class="nav-links" id="mobile-menu-links">
                 <li><a href="#home">Home</a></li>
@@ -569,19 +699,27 @@
                 <li><a href="#packages">Programs</a></li>
                 <li><a href="#research">Research</a></li>
                 <li><a href="#contact">Contact</a></li>
+                
             </ul>
             <button class="mobile-menu-btn" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobile-menu-links">☰</button>
         </nav>
     </header>
 
     <main>
-        <section id="home" class="hero">
-            <div class="container hero-content">
-                <h1 data-animated>Positive Synergy 4 Wellbeing</h1>
-                <p data-animated>Transformative programs for individuals and organizations. Helping people thrive emotionally, mentally, socially, and professionally through evidence-based wellbeing solutions.</p>
-                <a href="#services" class="cta-button" data-animated>Explore Our Services</a>
+<section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Positive Synergy 4 Wellbeing</h1>
+                    <p data-animated>Transformative programs for individuals and organizations. Helping people thrive emotionally, mentally, socially, and professionally through evidence-based wellbeing solutions.</p>
+                    <a href="#services" class="cta-button" data-animated>Explore Our Services</a>
+                </div>
+                <div class="hero-image-container" data-animated>
+                    
+                </div>
             </div>
         </section>
+
+
 
         <section id="services" class="services">
             <div class="container">
@@ -601,7 +739,7 @@
                         </div>
                     </div>
                     <div class="service-card" data-animated>
-                        <img src="image/2.jpg" alt="A coach and a client having an individual coaching session" class="service-card-image" loading="lazy">
+                        <img src="image/14.jpeg" alt="A coach and a client having an individual coaching session" class="service-card-image" loading="lazy">
                         <div class="service-card-content">
                             <h3>Individual Coaching</h3>
                             <p>Our certified coaches offer personalized support to help individuals navigate life's challenges and achieve their fullest potential.</p>
@@ -620,83 +758,115 @@
         <section id="packages" class="wellness-packages">
             <div class="container">
                 <h2 class="section-title">Our Signature Wellness Packages</h2>
-                <div class="packages-grid">
-                    <div class="package-card" data-animated>
-                        <span class="package-icon" aria-hidden="true">🧘</span>
-                        <h3>Wellness Foundations</h3>
-                        <p>Based on the PERMA model by Dr. Martin Seligman, this module helps individuals build a flourishing life.</p>
-                        <ul class="package-features">
-                            <li>Healthy Habits: Nutrition, sleep, movement</li>
-                            <li>Positive Emotions: Gratitude and joy practices</li>
-                            <li>Engagement: Discovering flow and deep focus</li>
-                            <li>Relationships: Building trust and connection</li>
-                            <li>Meaning: Aligning with purpose and values</li>
-                            <li>Accomplishment: Goal setting and progress</li>
-                        </ul>
+                <div class="packages-container">
+                    
+                    <div class="package-item" data-animated>
+                        <div class="package-image">
+                            <img src="image/17.jpeg" loading="lazy">
+                        </div>
+                        <div class="package-content">
+                            <h3>Wellness Foundations</h3>
+                            <p>Based on the PERMA model by Dr. Martin Seligman, this module helps individuals build a flourishing life.</p>
+                            <ul class="package-features">
+                                <li>Healthy Habits: Nutrition, sleep, movement</li>
+                                <li>Positive Emotions: Gratitude and joy practices</li>
+                                <li>Engagement: Discovering flow and deep focus</li>
+                                <li>Relationships: Building trust and connection</li>
+                                <li>Meaning: Aligning with purpose and values</li>
+                                <li>Accomplishment: Goal setting and progress</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="package-card" data-animated>
-                        <span class="package-icon" aria-hidden="true">🌈</span>
-                        <h3>Positive Psychology</h3>
-                        <p>Grounded in the science of human flourishing and evidence-based practices for lasting wellbeing.</p>
-                        <ul class="package-features">
-                            <li>Introduction to Positive Psychology</li>
-                            <li>Strengths Discovery using VIA Character Strengths</li>
-                            <li>Behavioral Change through habit science</li>
-                            <li>Coping with Obstacles using resilience tools</li>
-                            <li>Emotional Uplift through gratitude</li>
-                            <li>Evaluation & Future Visioning</li>
-                        </ul>
+
+                    <div class="package-item" data-animated>
+                        <div class="package-image">
+                            <img src="image/12.jpeg" loading="lazy">
+                        </div>
+                        <div class="package-content">
+                            <h3>Positive Psychology</h3>
+                            <p>Grounded in the science of human flourishing and evidence-based practices for lasting wellbeing.</p>
+                            <ul class="package-features">
+                                <li>Introduction to Positive Psychology</li>
+                                <li>Strengths Discovery using VIA Character Strengths</li>
+                                <li>Behavioral Change through habit science</li>
+                                <li>Coping with Obstacles using resilience tools</li>
+                                <li>Emotional Uplift through gratitude</li>
+                                <li>Evaluation & Future Visioning</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="package-card" data-animated>
-                        <span class="package-icon" aria-hidden="true">💬</span>
-                        <h3>Emotional Intelligence</h3>
-                        <p>Inspired by Daniel Goleman's framework for understanding and managing emotions effectively.</p>
-                        <ul class="package-features">
-                            <li>The Sailboat Metaphor for emotional navigation</li>
-                            <li>Understanding Emotions & EI</li>
-                            <li>Mastering Attention for emotional awareness</li>
-                            <li>Motivation: Emotions as data</li>
-                            <li>Emotion Regulation strategies</li>
-                            <li>Building Your Personal EI Plan</li>
-                        </ul>
+
+                    <div class="package-item" data-animated>
+                        <div class="package-image">
+                            <img src="image/18.jpeg" loading="lazy">
+                        </div>
+                        <div class="package-content">
+                            <h3>Emotional Intelligence</h3>
+                            <p>Inspired by Daniel Goleman's framework for understanding and managing emotions effectively.</p>
+                            <ul class="package-features">
+                                <li>The Sailboat Metaphor for emotional navigation</li>
+                                <li>Understanding Emotions & EI</li>
+                                <li>Mastering Attention for emotional awareness</li>
+                                <li>Motivation: Emotions as data</li>
+                                <li>Emotion Regulation strategies</li>
+                                <li>Building Your Personal EI Plan</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="package-card" data-animated>
-                        <span class="package-icon" aria-hidden="true">🧘</span>
-                        <h3>Mindfulness Mastery</h3>
-                        <p>Backed by research from Oxford and Harvard, integrating mindfulness into daily life and work.</p>
-                        <ul class="package-features">
-                            <li>Introduction to Mindfulness</li>
-                            <li>Attention & The Now</li>
-                            <li>Non-Judgment & Acceptance</li>
-                            <li>Compassion and Ego awareness</li>
-                            <li>Goal-Oriented Mindfulness</li>
-                            <li>Formal Meditation Practices</li>
-                        </ul>
+
+                    <div class="package-item" data-animated>
+                        <div class="package-image">
+                            <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Mindfulness Mastery - Person in peaceful meditation" loading="lazy">
+                        </div>
+                        <div class="package-content">
+                            <h3>Mindfulness Mastery</h3>
+                            <p>Backed by research from Oxford and Harvard, integrating mindfulness into daily life and work.</p>
+
+                            <ul class="package-features">
+                                <li>Introduction to Mindfulness</li>
+                                <li>Attention & The Now</li>
+                                <li>Non-Judgment & Acceptance</li>
+                                <li>Compassion and Ego awareness</li>
+                                <li>Goal-Oriented Mindfulness</li>
+                                <li>Formal Meditation Practices</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="package-card" data-animated>
-                        <span class="package-icon" aria-hidden="true">💼</span>
-                        <h3>Job Crafting</h3>
-                        <p>Based on research by Wrzesniewski & Dutton to redesign your work for greater satisfaction.</p>
-                        <ul class="package-features">
-                            <li>Clarifying Values, Strengths & Interests</li>
-                            <li>Task Crafting: redesigning work tasks</li>
-                            <li>Relational Crafting: improving relationships</li>
-                            <li>Cognitive Crafting: reframing work meaning</li>
-                            <li>Action Plan & Reflection</li>
-                        </ul>
+
+                    <div class="package-item" data-animated>
+                        <div class="package-image">
+                            <img src="image/16.jpeg" loading="lazy">
+                        </div>
+                        <div class="package-content">
+                            <h3>Job Crafting</h3>
+                            <p>Based on research by Wrzesniewski & Dutton to redesign your work for greater satisfaction.</p>
+                            <ul class="package-features">
+                                <li>Clarifying Values, Strengths & Interests</li>
+                                <li>Task Crafting: redesigning work tasks</li>
+                                <li>Relational Crafting: improving relationships</li>
+                                <li>Cognitive Crafting: reframing work meaning</li>
+                                <li>Action Plan & Reflection</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="package-card" data-animated>
-                        <span class="package-icon" aria-hidden="true">🛡️</span>
-                        <h3>Resilience Building</h3>
-                        <p>Informed by the Job Demands–Resources model for navigating adversity and stress.</p>
-                        <ul class="package-features">
-                            <li>Sailboat Metaphor for navigating adversity</li>
-                            <li>Attention Mastery under stress</li>
-                            <li>Thought Power and cognitive flexibility</li>
-                            <li>Motivation to Push Forward</li>
-                            <li>Personalized Resilience Plan</li>
-                        </ul>
+
+                    <div class="package-item" data-animated>
+                        <div class="package-image">
+                            <img src="image/15.jpeg" loading="lazy">
+                        </div>
+                        <div class="package-content">
+                            <h3>Resilience Building</h3>
+                            <p>Informed by the Job Demands–Resources model for navigating adversity and stress.</p>
+                            <ul class="package-features">
+                                <li>Sailboat Metaphor for navigating adversity</li>
+                                <li>Attention Mastery under stress</li>
+                                <li>Thought Power and cognitive flexibility</li>
+                                <li>Motivation to Push Forward</li>
+                                <li>Personalized Resilience Plan</li>
+                            </ul>
+                        </div>
                     </div>
+
                 </div>
             </div>
         </section>
@@ -724,7 +894,11 @@
                 </div>
                 <div style="text-align: center; margin-top: 3rem;">
                     <p style="font-size: 1.1rem; opacity: 0.9;">Meta-analysis of 339 studies involving 1.88 million employees across 82,248 business units</p>
-                    <p style="font-size: 0.9rem; opacity: 0.7; margin-top: 0.5rem;">Source: Harvard Business School & Gallup</p>
+                    <p style="font-size: 0.9rem; opacity: 0.7; margin-top: 0.5rem;">
+                        <a href="https://www.hbs.edu/ris/Publication%20Files/gh19_ch5_9e171d71-db54-4e08-a2eb-3cf1587daf4a.pdf" target="_blank" style="color: inherit; text-decoration: none;">
+                            Source: Harvard Business School & Gallup
+                        </a>
+                    </p>
                 </div>
             </div>
         </section>
@@ -768,7 +942,7 @@
                 <div class="new-footer-main">
                     <div class="new-footer-about">
                         <a href="#home" class="ps4wellbeing-logo">
-                            <img src="image/logo.png" alt="PS4Wellbeing Logo" loading="lazy">
+                            <img src="image/logoo.png" alt="PS4Wellbeing Logo" loading="lazy">
                         </a>
                         <p>
                             Our approach is rooted in the principles of Neuro-Linguistic Programming
@@ -834,6 +1008,10 @@
             </div>
         </div>
     </footer>
+<a href="https://wa.me/00974- 66648078" class="whatsapp-btn" target="_blank">
+        <img src="image/w.png" alt="WhatsApp" style="width: 30px; height: 30px;">
+    </a>
+
 
     <script>
         // Mobile menu toggle
@@ -926,8 +1104,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
