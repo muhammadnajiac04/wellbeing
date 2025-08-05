@@ -17,6 +17,7 @@
             --main-color: #99686E;
             --secondary-color: #DCAE96;
             --accent-color: #B2AC88;
+            --coral-color: #FF9B8A;
             --text-color: #333;
             --light-bg-color: #f8f9fa;
             --card-bg-color: #ffffff;
@@ -69,6 +70,17 @@
             justify-content: space-between;
             align-items: center;
         }
+.heading-logo {
+    height: auto;
+    max-width: 100%;
+    width: auto;
+    display: block;
+    margin-bottom: 1.5rem;
+}
+.heading-logo {
+    width: 350px; /* or a fixed width like 400px */
+}
+
 
         .logo {
             font-size: 1.8rem;
@@ -401,30 +413,135 @@
             opacity: 0.9;
         }
 
-        /* Why Choose Us */
+        /* Enhanced Why Choose Us with Image Cards */
         .why-choose {
             padding: 100px 0;
-            background: var(--light-bg-color);
+            background: #f5f7fa;
         }
 
-        .feature-item {
-            text-align: center;
-            padding: 2rem;
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .feature-card {
             background: var(--card-bg-color);
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
-        .feature-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+        .feature-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
 
-        .feature-icon {
-            font-size: 2.5rem;
+        .feature-card.coral {
+            background: linear-gradient(135deg, var(--coral-color) 0%, #ff8a75 100%);
+            color: white;
+        }
+
+        .feature-card.default {
+            background: var(--card-bg-color);
+            color: var(--text-color);
+        }
+
+        .feature-card.light-coral {
+            background: linear-gradient(135deg, #ffe4e1 0%, #ffd0cc 100%);
+            color: var(--text-color);
+        }
+
+        .feature-card.light-green {
+            background: linear-gradient(135deg, #e8f5e8 0%, #d4edda 100%);
+            color: var(--text-color);
+        }
+
+        .feature-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .feature-content {
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .feature-content h3 {
+            font-size: 1.4rem;
             margin-bottom: 1rem;
-            display: block;
+            font-weight: bold;
+        }
+
+        .feature-card.coral .feature-content h3 {
+            color: white;
+        }
+
+        .feature-card.default .feature-content h3,
+        .feature-card.light-coral .feature-content h3,
+        .feature-card.light-green .feature-content h3 {
+            color: var(--main-color);
+        }
+
+        .feature-content p {
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .feature-card.coral .feature-content p {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .read-more-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            margin-top: auto;
+        }
+
+        .feature-card.coral .read-more-btn {
+            color: white;
+        }
+
+        .feature-card.coral .read-more-btn:hover {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .feature-card.default .read-more-btn,
+        .feature-card.light-coral .read-more-btn,
+        .feature-card.light-green .read-more-btn {
+            color: var(--main-color);
+        }
+
+        .feature-card.default .read-more-btn:hover,
+        .feature-card.light-coral .read-more-btn:hover,
+        .feature-card.light-green .read-more-btn:hover {
+            color: var(--secondary-color);
+        }
+
+        .read-more-btn i {
+            transition: transform 0.3s ease;
+        }
+
+        .read-more-btn:hover i {
+            transform: translateX(3px);
         }
         
         /* Footer Section Styling */
@@ -563,6 +680,13 @@
             color: var(--main-color);
         }
         
+        @media (max-width: 1024px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+        }
+        
         @media (max-width: 768px) {
             header {
                 padding: 0.8rem 0;
@@ -626,6 +750,11 @@
                 max-width: 400px;
                 height: 200px;
             }
+            
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
         }
 
         /* Mobile menu */
@@ -664,8 +793,12 @@
 
         
         @media (max-width: 480px) {
-            .services-grid, .research-grid, .features-grid, .footer-content {
+            .services-grid, .research-grid, .footer-content {
                 grid-template-columns: 1fr;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
             }
             .new-footer-links div {
                 width: 100%;
@@ -690,7 +823,7 @@
     <header>
         <nav class="container">
             <a href="#home" class="logo" aria-label="PS4Wellbeing Home">
-                <img src="image/logooo.png" alt="PS4Wellbeing Logo" class="logo-image">
+                <img src="image/logooo.png" class="logo-image">
                 
             </a>
             <ul class="nav-links" id="mobile-menu-links">
@@ -698,6 +831,9 @@
                 <li><a href="#services">Services</a></li>
                 <li><a href="#packages">Programs</a></li>
                 <li><a href="#research">Research</a></li>
+
+<li><a href="#contact">Blog</a></li>
+<li><a href="#contact">Free consult </a></li>
                 <li><a href="#contact">Contact</a></li>
                 
             </ul>
@@ -707,26 +843,23 @@
 
     <main>
 <section id="home" class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1>Positive Synergy 4 Wellbeing</h1>
-                    <p data-animated>Transformative programs for individuals and organizations. Helping people thrive emotionally, mentally, socially, and professionally through evidence-based wellbeing solutions.</p>
-                    <a href="#services" class="cta-button" data-animated>Explore Our Services</a>
-                </div>
-                <div class="hero-image-container" data-animated>
-                    
-                </div>
+    <div class="container">
+        <div class="hero-content">
+            <img src="image/h.png" alt="Positive Synergy 4 Wellbeing" class="heading-logo" />
+            <p data-animated>Transformative programs for individuals and organizations. Helping people thrive emotionally, mentally, socially, and professionally through evidence-based wellbeing solutions.</p>  
+            <a href="#services" class="cta-button" data-animated>Explore Our Services</a>
+        </div>
+        <div class="hero-image-container" data-animated>
             </div>
-        </section>
+    </div>
+</section>
 
-
-
-        <section id="services" class="services">
+<section id="services" class="services">
             <div class="container">
                 <h2 class="section-title">Our Services</h2>
                 <div class="services-grid">
                     <div class="service-card" data-animated>
-                        <img src="image/1.jpg" alt="A group of employees in a corporate training session" class="service-card-image" loading="lazy">
+                        <img src="image/1.jpeg" alt="A group of employees in a corporate training session" class="service-card-image" loading="lazy">
                         <div class="service-card-content">
                             <h3>Corporate Training</h3>
                             <p>We partner with organizations to deliver immersive wellbeing workshops that boost employee engagement, resilience, and emotional intelligence.</p>
@@ -741,7 +874,7 @@
                     <div class="service-card" data-animated>
                         <img src="image/14.jpeg" alt="A coach and a client having an individual coaching session" class="service-card-image" loading="lazy">
                         <div class="service-card-content">
-                            <h3>Individual Coaching</h3>
+                            <h3>1:1 COACHING</h3>
                             <p>Our certified coaches offer personalized support to help individuals navigate life's challenges and achieve their fullest potential.</p>
                             <ul class="package-features">
                                 <li>Navigate life transitions</li>
@@ -755,7 +888,9 @@
             </div>
         </section>
 
-        <section id="packages" class="wellness-packages">
+
+
+<section id="packages" class="wellness-packages">
             <div class="container">
                 <h2 class="section-title">Our Signature Wellness Packages</h2>
                 <div class="packages-container">
@@ -871,6 +1006,7 @@
             </div>
         </section>
 
+
         <section id="research" class="research">
             <div class="container">
                 <h2 class="section-title" style="color: white;">Why Wellbeing Matters—The Research</h2>
@@ -907,25 +1043,40 @@
             <div class="container">
                 <h2 class="section-title">Why Choose PS4Wellbeing?</h2>
                 <div class="features-grid">
-                    <div class="feature-item" data-animated>
-                        <span class="feature-icon" aria-hidden="true">🔬</span>
-                        <h3>Evidence-Based</h3>
-                        <p>All our programs are backed by global research and proven methodologies from leading institutions.</p>
+                    <div class="feature-card default" data-animated>
+                        <img src="image/ev.jpg" alt="ps4wellbeing" class="feature-image">
+                        <div class="feature-content">
+                            <h3>Evidence-Based</h3>
+                            <p>Our programs are rooted in psychological research and proven models, ensuring scientifically-backed methods that drive real, measurable wellbeing improvement.</p>
+                            <a href="#" class="read-more-btn">READ MORE <i class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
-                    <div class="feature-item" data-animated>
-                        <span class="feature-icon" aria-hidden="true">🎯</span>
-                        <h3>Customizable</h3>
-                        <p>Tailored solutions to suit individual and organizational needs with flexible delivery options.</p>
+                    
+                    <div class="feature-card coral" data-animated>
+                        <img src="image/cus.jpg" alt="Woman reading motivational book" class="feature-image">
+                        <div class="feature-content">
+                            <h3>Customizable</h3>
+                            <p>We tailor every session to your needs, goals, and culture—delivering unique solutions for individuals, teams, and organizations alike.</p>
+                            <a href="#" class="read-more-btn">READ MORE <i class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
-                    <div class="feature-item" data-animated>
-                        <span class="feature-icon" aria-hidden="true">💡</span>
-                        <h3>Engaging</h3>
-                        <p>Interactive and experiential learning approaches for deeper understanding and retention.</p>
+                    
+                    <div class="feature-card light-green" data-animated>
+                        <img src="image/e.jpg" alt="Professional coaching session" class="feature-image">
+                        <div class="feature-content">
+                            <h3> Engaging</h3>
+                            <p>Interactive workshops, real-life exercises, and practical tools create high-impact, participant-driven experiences that spark learning and emotional connection.</p>
+                            <a href="#" class="read-more-btn">READ MORE <i class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
-                    <div class="feature-item" data-animated>
-                        <span class="feature-icon" aria-hidden="true">🚀</span>
-                        <h3>Lasting Impact</h3>
-                        <p>Designed for practical application with ongoing support to ensure sustainable transformation.</p>
+                    
+                    <div class="feature-card light-coral" data-animated>
+                        <img src="image/l.jpg" alt="Business professionals in meeting" class="feature-image">
+                        <div class="feature-content">
+                            <h3>Lasting Impact</h3>
+                            <p>We focus on sustainable transformation, equipping you with tools, habits, and mindsets that support long-term personal and professional wellbeing.</p>
+                            <a href="#" class="read-more-btn">READ MORE <i class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1104,8 +1255,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
