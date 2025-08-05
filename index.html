@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="PS4Wellbeing offers transformative wellbeing solutions through corporate training and individual coaching, rooted in positive psychology, emotional intelligence, and resilience-building.">
-    <meta name="keywords" content="wellbeing, corporate training, coaching, positive psychology, emotional intelligence, resilience, mental health, employee wellness, PS4Wellbeing">
+    <meta name="description" content="PS4Wellbeing offers transformative wellbeing solutions through corporate training and individual coaching, rooted in positive psychology, emotional intelligence, and resilience-building. We empower individuals and organizations to thrive.">
+    <meta name="keywords" content="wellbeing, corporate training, coaching, positive psychology, emotional intelligence, resilience, mental health, employee wellness, PS4Wellbeing, wellness programs, life coach, personal growth">
     <meta name="author" content="PS4Wellbeing">
-    <title>PS4Well-being - Transformative Wellbeing Solutions</title>
+    <meta name="robots" content="index, follow"> <title>PS4Well-being - Transformative Wellbeing Solutions</title>
 
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40B7EVh/iNqPs10a3F4L7f57W2tq/H8vM/fFfC04n4N6P4qF3p1N5e2A/H3F/V5L9B0bE15j3n0w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" as="style">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40B7EVh/iNqPs10a3F4L7f57W2tq/H8vM/fFfC04n4N6P4qF3p1N5e2A/H3F/V5L9B0bE15j3n0w==" crossorigin="anonymous" referrerpolicy="no-referrer">
     
     <style>
         /* CSS Variables for Easy Theme Change */
@@ -25,7 +27,7 @@
         }
 
         /* Base Styles and Layout */
-        * {
+        *, *::before, *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -37,6 +39,11 @@
                  url('path/to/AbadiMT.woff') format('woff');
             font-weight: normal;
             font-style: normal;
+            font-display: swap; /* Ensures text remains visible during font load */
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -70,17 +77,6 @@
             justify-content: space-between;
             align-items: center;
         }
-.heading-logo {
-    height: auto;
-    max-width: 100%;
-    width: auto;
-    display: block;
-    margin-bottom: 1.5rem;
-}
-.heading-logo {
-    width: 350px; /* or a fixed width like 400px */
-}
-
 
         .logo {
             font-size: 1.8rem;
@@ -91,12 +87,11 @@
             gap: 0.5rem;
             text-decoration: none;
         }
-        
+
         .logo-image {
-            height: 80px; 
+            height: 80px;
             width: auto;
         }
-        
 
         .nav-links {
             display: flex;
@@ -133,9 +128,8 @@
             width: 100%;
         }
 
- /* Hero Section */
-/* Hero Section */
-.hero {
+        /* Hero Section */
+        .hero {
             background: linear-gradient(135deg, var(--main-color) 0%, var(--secondary-color) 50%, var(--accent-color) 100%);
             color: var(--light-text-color);
             min-height: 100vh;
@@ -146,14 +140,15 @@
             align-items: center;
             padding-top: 100px;
         }
-
+        
         .hero .container {
             display: flex;
-            align-items: stretch;
+            flex-direction: row;
+            align-items: center;
             text-align: left;
             position: relative;
             min-height: 500px;
-            z-index: 2; /* To ensure content is on top of the image */
+            z-index: 2;
         }
         
         .hero-content {
@@ -180,7 +175,15 @@
             object-fit: cover;
             display: block;
             border-radius: 0;
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2); /* A subtle shadow for depth */
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .heading-logo {
+            height: auto;
+            max-width: 100%;
+            width: 350px;
+            display: block;
+            margin-bottom: 1.5rem;
         }
 
         .hero h1 {
@@ -216,11 +219,13 @@
             transform: translateY(-2px);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
+
         /* General Sections Styling */
         .services, .wellness-packages, .why-choose {
             padding: 100px 0;
             background: var(--light-bg-color);
         }
+
         .wellness-packages {
             background: var(--card-bg-color);
         }
@@ -421,7 +426,7 @@
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
             margin-top: 4rem;
         }
@@ -453,13 +458,13 @@
             color: var(--text-color);
         }
 
-        .feature-card.light-coral {
-            background: linear-gradient(135deg, #ffe4e1 0%, #ffd0cc 100%);
-            color: var(--text-color);
-        }
-
         .feature-card.light-green {
             background: linear-gradient(135deg, #e8f5e8 0%, #d4edda 100%);
+            color: var(--text-color);
+        }
+        
+        .feature-card.light-coral {
+            background: linear-gradient(135deg, #ffe4e1 0%, #ffd0cc 100%);
             color: var(--text-color);
         }
 
@@ -679,24 +684,22 @@
             cursor: pointer;
             color: var(--main-color);
         }
-        
+
         @media (max-width: 1024px) {
             .features-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 1.5rem;
             }
         }
-        
+
         @media (max-width: 768px) {
             header {
                 padding: 0.8rem 0;
             }
             .logo-image {
-                height: 60px; /* Logo size on mobile */
-            }
-            .logo-text-image {
                 height: 60px;
             }
+            
             .nav-links {
                 display: none;
                 position: absolute;
@@ -708,6 +711,7 @@
                 padding: 1rem;
                 box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
                 z-index: 999;
+                border-top: 1px solid rgba(0, 0, 0, 0.1);
             }
 
             .nav-links.active {
@@ -750,21 +754,44 @@
                 max-width: 400px;
                 height: 200px;
             }
-            
-            .features-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1.5rem;
-            }
         }
-
-        /* Mobile menu */
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--main-color);
-            font-size: 24px;
-            cursor: pointer;
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+            .hero-content {
+                padding-right: 0;
+            }
+            .hero-image-container {
+                position: static;
+                width: 100%;
+                height: 300px;
+                margin-top: 2rem;
+            }
+            .hero .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero-content {
+                order: 2; /* Puts text content below the image on small screens */
+                align-items: center;
+            }
+            .hero-image-container {
+                order: 1; /* Puts image above the text content on small screens */
+            }
+            .services-grid, .research-grid, .footer-content, .features-grid {
+                grid-template-columns: 1fr;
+            }
+            .new-footer-links div {
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+            .whatsapp-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
         }
         
         .whatsapp-btn {
@@ -790,22 +817,7 @@
         .whatsapp-btn:hover {
             transform: scale(1.1);
         }
-
         
-        @media (max-width: 480px) {
-            .services-grid, .research-grid, .footer-content {
-                grid-template-columns: 1fr;
-            }
-            .features-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-            .new-footer-links div {
-                width: 100%;
-                margin-bottom: 1rem;
-            }
-        }
-
         /* Loading animation */
         [data-animated] {
             opacity: 0;
@@ -823,43 +835,40 @@
     <header>
         <nav class="container">
             <a href="#home" class="logo" aria-label="PS4Wellbeing Home">
-                <img src="image/logooo.png" class="logo-image">
-                
+                <img src="image/logooo.png" class="logo-image" alt="PS4Wellbeing Logo" width="100" height="80">
             </a>
             <ul class="nav-links" id="mobile-menu-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#packages">Programs</a></li>
                 <li><a href="#research">Research</a></li>
-
-<li><a href="#contact">Blog</a></li>
-<li><a href="#contact">Free consult </a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#consult">Free Consult</a></li>
                 <li><a href="#contact">Contact</a></li>
-                
             </ul>
             <button class="mobile-menu-btn" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobile-menu-links">☰</button>
         </nav>
     </header>
 
     <main>
-<section id="home" class="hero">
-    <div class="container">
-        <div class="hero-content">
-            <img src="image/h.png" alt="Positive Synergy 4 Wellbeing" class="heading-logo" />
-            <p data-animated>Transformative programs for individuals and organizations. Helping people thrive emotionally, mentally, socially, and professionally through evidence-based wellbeing solutions.</p>  
-            <a href="#services" class="cta-button" data-animated>Explore Our Services</a>
-        </div>
-        <div class="hero-image-container" data-animated>
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <img src="image/h.png" alt="Positive Synergy 4 Wellbeing" class="heading-logo" width="350" height="auto" />
+                    <p data-animated>Transformative programs for individuals and organizations. Helping people thrive emotionally, mentally, socially, and professionally through evidence-based wellbeing solutions.</p>
+                    <a href="#services" class="cta-button" data-animated>Explore Our Services</a>
+                </div>
+                <div class="hero-image-container" data-animated>
+                    </div>
             </div>
-    </div>
-</section>
+        </section>
 
-<section id="services" class="services">
+        <section id="services" class="services">
             <div class="container">
                 <h2 class="section-title">Our Services</h2>
                 <div class="services-grid">
                     <div class="service-card" data-animated>
-                        <img src="image/1.jpeg" alt="A group of employees in a corporate training session" class="service-card-image" loading="lazy">
+                        <img src="image/1.jpeg" alt="A group of employees in a corporate training session" class="service-card-image" loading="lazy" width="400" height="400">
                         <div class="service-card-content">
                             <h3>Corporate Training</h3>
                             <p>We partner with organizations to deliver immersive wellbeing workshops that boost employee engagement, resilience, and emotional intelligence.</p>
@@ -872,9 +881,9 @@
                         </div>
                     </div>
                     <div class="service-card" data-animated>
-                        <img src="image/14.jpeg" alt="A coach and a client having an individual coaching session" class="service-card-image" loading="lazy">
+                        <img src="image/14.jpeg" alt="A coach and a client having an individual coaching session" class="service-card-image" loading="lazy" width="400" height="400">
                         <div class="service-card-content">
-                            <h3>1:1 COACHING</h3>
+                            <h3>1:1 Coaching</h3>
                             <p>Our certified coaches offer personalized support to help individuals navigate life's challenges and achieve their fullest potential.</p>
                             <ul class="package-features">
                                 <li>Navigate life transitions</li>
@@ -888,16 +897,13 @@
             </div>
         </section>
 
-
-
-<section id="packages" class="wellness-packages">
+        <section id="packages" class="wellness-packages">
             <div class="container">
                 <h2 class="section-title">Our Signature Wellness Packages</h2>
                 <div class="packages-container">
-                    
                     <div class="package-item" data-animated>
                         <div class="package-image">
-                            <img src="image/17.jpeg" loading="lazy">
+                            <img src="image/17.jpeg" alt="A wellness expert guiding a meditation session" loading="lazy" width="450" height="450">
                         </div>
                         <div class="package-content">
                             <h3>Wellness Foundations</h3>
@@ -915,7 +921,7 @@
 
                     <div class="package-item" data-animated>
                         <div class="package-image">
-                            <img src="image/12.jpeg" loading="lazy">
+                            <img src="image/12.jpeg" alt="A person drawing in a notebook, symbolizing self-reflection and growth" loading="lazy" width="450" height="450">
                         </div>
                         <div class="package-content">
                             <h3>Positive Psychology</h3>
@@ -933,7 +939,7 @@
 
                     <div class="package-item" data-animated>
                         <div class="package-image">
-                            <img src="image/18.jpeg" loading="lazy">
+                            <img src="image/18.jpeg" alt="A professional woman smiling, representing emotional intelligence" loading="lazy" width="450" height="450">
                         </div>
                         <div class="package-content">
                             <h3>Emotional Intelligence</h3>
@@ -951,12 +957,11 @@
 
                     <div class="package-item" data-animated>
                         <div class="package-image">
-                            <img src="image/19.jpeg" alt="Mindfulness Mastery - Person in peaceful meditation" loading="lazy">
+                            <img src="image/19.jpeg" alt="A person in a peaceful meditation pose" loading="lazy" width="450" height="450">
                         </div>
                         <div class="package-content">
                             <h3>Mindfulness Mastery</h3>
                             <p>Backed by research from Oxford and Harvard, integrating mindfulness into daily life and work.</p>
-
                             <ul class="package-features">
                                 <li>Introduction to Mindfulness</li>
                                 <li>Attention & The Now</li>
@@ -970,7 +975,7 @@
 
                     <div class="package-item" data-animated>
                         <div class="package-image">
-                            <img src="image/16.jpeg" loading="lazy">
+                            <img src="image/16.jpeg" alt="A woman writing on a whiteboard, symbolizing job crafting" loading="lazy" width="450" height="450">
                         </div>
                         <div class="package-content">
                             <h3>Job Crafting</h3>
@@ -987,7 +992,7 @@
 
                     <div class="package-item" data-animated>
                         <div class="package-image">
-                            <img src="image/15.jpeg" loading="lazy">
+                            <img src="image/15.jpeg" alt="A person standing on a mountain peak, representing resilience" loading="lazy" width="450" height="450">
                         </div>
                         <div class="package-content">
                             <h3>Resilience Building</h3>
@@ -1001,11 +1006,9 @@
                             </ul>
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
-
 
         <section id="research" class="research">
             <div class="container">
@@ -1031,7 +1034,7 @@
                 <div style="text-align: center; margin-top: 3rem;">
                     <p style="font-size: 1.1rem; opacity: 0.9;">Meta-analysis of 339 studies involving 1.88 million employees across 82,248 business units</p>
                     <p style="font-size: 0.9rem; opacity: 0.7; margin-top: 0.5rem;">
-                        <a href="https://www.hbs.edu/ris/Publication%20Files/gh19_ch5_9e171d71-db54-4e08-a2eb-3cf1587daf4a.pdf" target="_blank" style="color: inherit; text-decoration: none;">
+                        <a href="https://www.hbs.edu/ris/Publication%20Files/gh19_ch5_9e171d71-db54-4e08-a2eb-3cf1587daf4a.pdf" target="_blank" style="color: inherit; text-decoration: none;" rel="noopener noreferrer">
                             Source: Harvard Business School & Gallup
                         </a>
                     </p>
@@ -1044,38 +1047,38 @@
                 <h2 class="section-title">Why Choose PS4Wellbeing?</h2>
                 <div class="features-grid">
                     <div class="feature-card default" data-animated>
-                        <img src="image/ev.jpg" alt="ps4wellbeing" class="feature-image">
+                        <img src="image/ev.jpg" alt="A stack of books, symbolizing evidence-based practices" class="feature-image" width="300" height="200">
                         <div class="feature-content">
                             <h3>Evidence-Based</h3>
-                            <p>Our programs are rooted in psychological research and proven models, ensuring scientifically-backed methods that drive real, measurable wellbeing improvement.</p>
-                            <a href="#" class="read-more-btn">READ MORE <i class="fas fa-arrow-right"></i></a>
+                            <p>Our programs are rooted in psychological research and proven models, ensuring scientifically-backed methods </p>
+                            <a href="#" class="read-more-btn" aria-label="Read more about our evidence-based approach">READ MORE <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                     
                     <div class="feature-card coral" data-animated>
-                        <img src="image/cus.jpg" alt="Woman reading motivational book" class="feature-image">
+                        <img src="image/cus.jpg" alt="A woman reading a motivational book, representing a customizable approach" class="feature-image" width="300" height="200">
                         <div class="feature-content">
                             <h3>Customizable</h3>
-                            <p>We tailor every session to your needs, goals, and culture—delivering unique solutions for individuals, teams, and organizations alike.</p>
-                            <a href="#" class="read-more-btn">READ MORE <i class="fas fa-arrow-right"></i></a>
+                            <p>We tailor every session to your needs, goals, and culture—delivering unique solutions .</p>
+                            <a href="#" class="read-more-btn" aria-label="Read more about our customizable services">READ MORE <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                     
                     <div class="feature-card light-green" data-animated>
-                        <img src="image/e.jpg" alt="Professional coaching session" class="feature-image">
+                        <img src="image/e.jpg" alt="A professional coaching session, highlighting engaging content" class="feature-image" width="300" height="200">
                         <div class="feature-content">
-                            <h3> Engaging</h3>
-                            <p>Interactive workshops, real-life exercises, and practical tools create high-impact, participant-driven experiences that spark learning and emotional connection.</p>
-                            <a href="#" class="read-more-btn">READ MORE <i class="fas fa-arrow-right"></i></a>
+                            <h3>Engaging</h3>
+                            <p>Interactive workshops, real-life exercises, and practical tools create high-impact, participant-driven</p>
+                            <a href="#" class="read-more-btn" aria-label="Read more about our engaging methods">READ MORE <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                     
                     <div class="feature-card light-coral" data-animated>
-                        <img src="image/l.jpg" alt="Business professionals in meeting" class="feature-image">
+                        <img src="image/l.jpg" alt="Business professionals in a meeting, focused on lasting impact" class="feature-image" width="300" height="200">
                         <div class="feature-content">
                             <h3>Lasting Impact</h3>
-                            <p>We focus on sustainable transformation, equipping you with tools, habits, and mindsets that support long-term personal and professional wellbeing.</p>
-                            <a href="#" class="read-more-btn">READ MORE <i class="fas fa-arrow-right"></i></a>
+                            <p>We focus on sustainable transformation, equipping you with tools, habits, and mindsets that</p>
+                            <a href="#" class="read-more-btn" aria-label="Read more about our lasting impact">READ MORE <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -1093,7 +1096,7 @@
                 <div class="new-footer-main">
                     <div class="new-footer-about">
                         <a href="#home" class="ps4wellbeing-logo">
-                            <img src="image/logooo.png" alt="PS4Wellbeing Logo" loading="lazy">
+                            <img src="image/logooo.png" alt="PS4Wellbeing Logo" loading="lazy" width="300" height="auto">
                         </a>
                         <p>
                             Our approach is rooted in the principles of Neuro-Linguistic Programming
@@ -1159,12 +1162,11 @@
             </div>
         </div>
     </footer>
-<a href="https://wa.me/+917994144334" class="whatsapp-btn" target="_blank">
-        <img src="image/w.png" alt="WhatsApp" style="width: 30px; height: 30px;">
+    <a href="https://wa.me/+917994144334" class="whatsapp-btn" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
+        <img src="image/w.png" alt="WhatsApp" style="width: 30px; height: 30px;" width="30" height="30">
     </a>
 
-
-    <script>
+    <script defer>
         // Mobile menu toggle
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const navLinks = document.querySelector('.nav-links');
