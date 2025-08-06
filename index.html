@@ -435,91 +435,82 @@
         }
 
         /* Package Card Layout Styling */
-        .packages-container {
-            display: flex;
-            flex-direction: column;
-            gap: 4rem;
-            margin-top: 4rem;
-        }
+       .packages-container {
+    margin-top: 4rem;
+}
 
-        .package-item {
-            display: flex;
-            align-items: center;
-            gap: 3rem;
-            margin-bottom: 2rem;
-            transition: all 0.3s ease;
-        }
+.package-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
 
-        .package-item:hover {
-            transform: translateY(-5px);
-        }
+.package-image {
+    width: 100%;
+    height: 250px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
 
-        .package-item:nth-child(even) {
-            flex-direction: row-reverse;
-        }
+.package-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
 
-        .package-image {
-            flex: 0 0 450px;
-            height: 450px;
-            border-radius: 2px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        }
+.package-item:hover .package-image img {
+    transform: scale(1.05);
+}
 
-        .package-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
+.package-content {
+    padding: 1.5rem;
+    border-radius: 15px;
+    border: 1px solid rgba(153, 104, 110, 0.1);
+    background: #fff;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
 
-        .package-item:hover .package-image img {
-            transform: scale(1.05);
-        }
+.package-content h3 {
+    color: var(--main-color);
+    margin-bottom: 1rem;
+}
 
-        .package-content {
-            flex: 1;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            padding: 2.5rem;
-            border-radius: 20px;
-            border: 1px solid rgba(153, 104, 110, 0.1);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-        }
+.package-features {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+}
 
-        .package-content h3 {
-            color: var(--main-color);
-            margin-bottom: 1rem;
-            font-size: 1.8rem;
-            font-weight: bold;
-        }
+.package-features li {
+    padding-left: 1.5rem;
+    position: relative;
+    line-height: 1.8;
+}
 
-        .package-content p {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-            line-height: 1.7;
-        }
+.package-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--main-color);
+    font-weight: bold;
+}
 
-        .package-features {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
+@media (min-width: 768px) {
+    .package-item {
+        flex-direction: row;
+        text-align: left;
+    }
+    .package-item:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+    .package-image {
+        height: 450px;
+    }
+}
 
-        .package-features li {
-            padding: 0.5rem 0;
-            position: relative;
-            padding-left: 1.5rem;
-            font-size: 1rem;
-        }
-
-        .package-features li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--main-color);
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
         
         /* Footer Section Styling */
         .new-footer-section {
@@ -782,6 +773,7 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#packages">Programs</a></li>
+
                 <li><a href="#research">Research</a></li>
                 <li><a href="#detailed-services">Our Expertise</a></li>
                 <li><a href="#blog">Blog</a></li>
@@ -836,10 +828,9 @@
                 </div>
             </div>
         </section>
-
-        <section id="packages" class="wellness-packages">
+<section id="packages" class="wellness-packages">
             <div class="container">
-                <h2 class="section-title">Our Signature Wellness Packages</h2>
+                <h2 class="section-title">Our Signature Wellness Programs</h2>
                 <div class="packages-container">
                     <div class="package-item" data-animated>
                         <div class="package-image">
@@ -875,6 +866,7 @@
                             </ul>
                         </div>
                     </div>
+
                     <div class="package-item" data-animated>
                         <div class="package-image">
                             <img src="image/18.jpeg" alt="Emotional Intelligence" loading="lazy">
@@ -892,6 +884,7 @@
                             </ul>
                         </div>
                     </div>
+
                     <div class="package-item" data-animated>
                         <div class="package-image">
                             <img src="image/19.jpeg" alt="Mindfulness Mastery - Person in peaceful meditation" loading="lazy">
@@ -909,6 +902,7 @@
                             </ul>
                         </div>
                     </div>
+
                     <div class="package-item" data-animated>
                         <div class="package-image">
                             <img src="image/16.jpeg" alt="Job Crafting" loading="lazy">
@@ -925,6 +919,7 @@
                             </ul>
                         </div>
                     </div>
+
                     <div class="package-item" data-animated>
                         <div class="package-image">
                             <img src="image/15.jpeg" alt="Resilience Building" loading="lazy">
@@ -944,7 +939,6 @@
                 </div>
             </div>
         </section>
-
         <section id="research" class="research">
             <div class="container">
                 <h2 class="section-title" style="color: white;">Why Wellbeing Matters—The Research</h2>
@@ -1400,4 +1394,3 @@
     </script>
 </body>
 </html>
-
