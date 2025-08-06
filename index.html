@@ -276,23 +276,17 @@
         }
 
         /* Desktop Grid Layout */
-        .detailed-services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
+.detailed-services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Force exactly 4 columns */
+    gap: 30px;
+    margin-bottom: 40px;
+}
 
-        .detailed-service-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
+.detailed-service-card {
+    /* Keep as is, or style individually */
+}
+
 
         .detailed-service-card:hover {
             transform: translateY(-10px);
@@ -313,20 +307,22 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(45deg, rgba(153,104,110,0.8), rgba(220,174,150,0.6));
+            
         }
 
-        .detailed-service-card:nth-child(2) .detailed-service-image::after {
-            background: linear-gradient(45deg, rgba(240,240,240,0.8), rgba(250,250,250,0.6));
-        }
+        .detailed-service-image {
+    height: 200px;
+    overflow: hidden;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
 
-        .detailed-service-card:nth-child(3) .detailed-service-image::after {
-            background: linear-gradient(45deg, rgba(153,104,110,0.8), rgba(220,174,150,0.6));
-        }
-
-        .detailed-service-card:nth-child(4) .detailed-service-image::after {
-            background: linear-gradient(45deg, rgba(240,240,240,0.8), rgba(250,250,250,0.6));
-        }
+.detailed-service-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
 
         .detailed-service-content {
             padding: 30px;
@@ -1064,51 +1060,64 @@
             </div>
         </section>
 
+
+
+
         <section id="detailed-services" class="detailed-services">
             <div class="container">
-                <h2 class="section-title">Our Expertise Areas</h2>
+                <h2 class="section-title">Why Choose PS4Wellbeing?</h2>
                 
                 <!-- Desktop Grid Layout -->
                 <div class="detailed-services-grid">
                     <div class="detailed-service-card">
-                        <div class="detailed-service-image workshops"></div>
+                        <div class="detailed-service-image">
+  <img src="image/ev.jpg" alt="Workshops">
+</div>
                         <div class="detailed-service-content">
-                            <h3 class="detailed-service-title">Workshops and Seminars</h3>
+                            <h3 class="detailed-service-title">Evidence-Based</h3>
                             <p class="detailed-service-description">
-                                We offer a variety of workshops and seminars on topics such as goal setting, stress management, effective communication, and personal development strategies.
+                                Our programs are rooted in psychological research and proven models, ensuring scientifically-backed methods that drive real, measurable wellbeing improvement.
                             </p>
                             <a href="#" class="read-more-btn">Read More</a>
                         </div>
                     </div>
 
                     <div class="detailed-service-card">
-                        <div class="detailed-service-image coaching"></div>
+                        <div class="detailed-service-image">
+  <img src="image/cus.jpg" alt="Workshops">
+</div>
+
                         <div class="detailed-service-content">
-                            <h3 class="detailed-service-title">Life Coaching</h3>
+                            <h3 class="detailed-service-title">Customizable</h3>
                             <p class="detailed-service-description">
-                                Our life coaching services are designed to help you identify your aspirations, clarify your goals, and develop actionable plans to achieve personal and professional success.
+                              We tailor every session to your needs, goals, and culture—delivering unique solutions for individuals, teams, and organizations alike.
                             </p>
                             <a href="#" class="read-more-btn">Read More</a>
                         </div>
                     </div>
 
                     <div class="detailed-service-card">
-                        <div class="detailed-service-image nlp"></div>
+                       <div class="detailed-service-image">
+  <img src="image/e.jpg" alt="Workshops">
+</div>
+
                         <div class="detailed-service-content">
-                            <h3 class="detailed-service-title">Neuro-Linguistic Programming (NLP) Sessions</h3>
+                            <h3 class="detailed-service-title">Engaging</h3>
                             <p class="detailed-service-description">
-                                NLP is a powerful approach to communication, personal development, and behavioral change that helps you overcome limiting beliefs and achieve breakthrough results.
+                               Interactive workshops, real-life exercises, and practical tools create high-impact, participant-driven experiences that spark learning and emotional connection.
                             </p>
                             <a href="#" class="read-more-btn">Read More</a>
                         </div>
                     </div>
 
                     <div class="detailed-service-card">
-                        <div class="detailed-service-image emotional"></div>
+                        <div class="detailed-service-image">
+  <img src="image/l.jpg" alt="Workshops">
+</div>
                         <div class="detailed-service-content">
-                            <h3 class="detailed-service-title">Emotional Intelligence (EI) Sessions</h3>
+                            <h3 class="detailed-service-title">Lasting Impact</h3>
                             <p class="detailed-service-description">
-                                Emotional Intelligence is the ability to recognize, understand, and manage your own emotions, as well as effectively navigate interpersonal relationships.
+                               We focus on sustainable transformation, equipping you with tools, habits, and mindsets that support long-term personal and professional wellbeing.
                             </p>
                             <a href="#" class="read-more-btn">Read More</a>
                         </div>
@@ -1120,11 +1129,12 @@
                     <div class="carousel-container" id="carouselContainer">
                         <div class="carousel-slide">
                             <div class="detailed-service-card">
-                                <div class="detailed-service-image workshops"></div>
+                                <div class="detailed-service-image workshops">
+  <img src="image/ev.jpg" alt="Workshop Image"></div>
                                 <div class="detailed-service-content">
-                                    <h3 class="detailed-service-title">Workshops and Seminars</h3>
+                                    <h3 class="detailed-service-title">Evidence-Based</h3>
                                     <p class="detailed-service-description">
-                                        We offer a variety of workshops and seminars on topics such as goal setting, stress management, effective communication, and personal development strategies.
+                                        Our programs are rooted in psychological research and proven models, ensuring scientifically-backed methods that drive real, measurable wellbeing improvement.
                                     </p>
                                     <a href="#" class="read-more-btn">Read More</a>
                                 </div>
@@ -1133,11 +1143,12 @@
 
                         <div class="carousel-slide">
                             <div class="detailed-service-card">
-                                <div class="detailed-service-image coaching"></div>
+                                 <div class="detailed-service-image workshops">
+  <img src="image/cus.jpg" alt="Workshop Image"></div>
                                 <div class="detailed-service-content">
-                                    <h3 class="detailed-service-title">Life Coaching</h3>
+                                    <h3 class="detailed-service-title">Customizable</h3>
                                     <p class="detailed-service-description">
-                                        Our life coaching services are designed to help you identify your aspirations, clarify your goals, and develop actionable plans to achieve personal and professional success.
+                                        We tailor every session to your needs, goals, and culture—delivering unique solutions for individuals, teams, and organizations alike.
                                     </p>
                                     <a href="#" class="read-more-btn">Read More</a>
                                 </div>
@@ -1146,11 +1157,12 @@
 
                         <div class="carousel-slide">
                             <div class="detailed-service-card">
-                                <div class="detailed-service-image nlp"></div>
+                                <div class="detailed-service-image workshops">
+  <img src="image/e.jpg" alt="Workshop Image"></div>
                                 <div class="detailed-service-content">
-                                    <h3 class="detailed-service-title">Neuro-Linguistic Programming (NLP) Sessions</h3>
+                                    <h3 class="detailed-service-title">Engaging</h3>
                                     <p class="detailed-service-description">
-                                        NLP is a powerful approach to communication, personal development, and behavioral change that helps you overcome limiting beliefs and achieve breakthrough results.
+                                       Interactive workshops, real-life exercises, and practical tools create high-impact, participant-driven experiences that spark learning and emotional connection.
                                     </p>
                                     <a href="#" class="read-more-btn">Read More</a>
                                 </div>
@@ -1159,11 +1171,12 @@
 
                         <div class="carousel-slide">
                             <div class="detailed-service-card">
-                                <div class="detailed-service-image emotional"></div>
+                                <div class="detailed-service-image workshops">
+  <img src="image/l.jpg" alt="Workshop Image"></div>
                                 <div class="detailed-service-content">
-                                    <h3 class="detailed-service-title">Emotional Intelligence (EI) Sessions</h3>
+                                    <h3 class="detailed-service-title">Lasting Impact</h3>
                                     <p class="detailed-service-description">
-                                        Emotional Intelligence is the ability to recognize, understand, and manage your own emotions, as well as effectively navigate interpersonal relationships.
+                                       We focus on sustainable transformation, equipping you with tools, habits, and mindsets that support long-term personal and professional wellbeing.
                                     </p>
                                     <a href="#" class="read-more-btn">Read More</a>
                                 </div>
