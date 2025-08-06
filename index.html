@@ -160,7 +160,6 @@
             margin-bottom: 1.5rem;
         }
 
-
         .hero h1 {
             font-size: clamp(2rem, 5vw, 3.5rem);
             margin-bottom: 1rem;
@@ -194,10 +193,10 @@
         }
 
         /* General Sections Styling */
-        .services, .wellness-packages, .why-choose, .new-footer-section {
+        .services, .wellness-packages, .why-choose, .new-footer-section, .detailed-services {
             padding: 100px 0;
         }
-        .services, .why-choose {
+        .services, .why-choose, .detailed-services {
             background: var(--light-bg-color);
         }
 
@@ -225,16 +224,11 @@
             border-radius: 2px;
         }
 
-        .services-grid, .research-grid, .features-grid {
+        .services-grid, .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
             margin-top: 4rem;
-        }
-
-        .research-grid {
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
         }
 
         .service-card {
@@ -274,6 +268,168 @@
 
         .service-card-content p {
             margin-bottom: 1rem;
+        }
+
+        /* NEW SERVICES CAROUSEL STYLES */
+        .detailed-services {
+            background: #f5f7fa;
+        }
+
+        /* Desktop Grid Layout */
+        .detailed-services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .detailed-service-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .detailed-service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .detailed-service-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .detailed-service-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(153,104,110,0.8), rgba(220,174,150,0.6));
+        }
+
+        .detailed-service-card:nth-child(2) .detailed-service-image::after {
+            background: linear-gradient(45deg, rgba(240,240,240,0.8), rgba(250,250,250,0.6));
+        }
+
+        .detailed-service-card:nth-child(3) .detailed-service-image::after {
+            background: linear-gradient(45deg, rgba(153,104,110,0.8), rgba(220,174,150,0.6));
+        }
+
+        .detailed-service-card:nth-child(4) .detailed-service-image::after {
+            background: linear-gradient(45deg, rgba(240,240,240,0.8), rgba(250,250,250,0.6));
+        }
+
+        .detailed-service-content {
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .detailed-service-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--main-color);
+            font-weight: 700;
+        }
+
+        .detailed-service-description {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.8;
+            flex-grow: 1;
+        }
+
+        .read-more-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--coral-color);
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+            margin-top: auto;
+        }
+
+        .read-more-btn:hover {
+            color: #ff5252;
+        }
+
+        .read-more-btn::after {
+            content: '→';
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .read-more-btn:hover::after {
+            transform: translateX(5px);
+        }
+
+        /* Mobile Carousel */
+        .mobile-carousel {
+            display: none;
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+        }
+
+        .carousel-container {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 400%;
+        }
+
+        .carousel-slide {
+            width: 25%;
+            flex-shrink: 0;
+        }
+
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .indicator.active {
+            background: var(--coral-color);
+        }
+
+        /* Service Images */
+        .workshops {
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><rect fill="%23f0f8ff" width="400" height="200"/><circle fill="%2399686E" cx="100" cy="100" r="30" opacity="0.7"/><circle fill="%23DCAE96" cx="300" cy="80" r="25" opacity="0.7"/><rect fill="%23B2AC88" x="150" y="60" width="100" height="80" rx="10" opacity="0.8"/><text x="200" y="110" text-anchor="middle" fill="%23333" font-family="Arial" font-size="16">Workshop</text></svg>');
+        }
+
+        .coaching {
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><rect fill="%23f5f5f5" width="400" height="200"/><circle fill="%23DCAE96" cx="120" cy="100" r="35" opacity="0.7"/><circle fill="%2399686E" cx="280" cy="120" r="30" opacity="0.7"/><rect fill="%23B2AC88" x="160" y="70" width="80" height="60" rx="8" opacity="0.8"/><text x="200" y="105" text-anchor="middle" fill="%23333" font-family="Arial" font-size="14">Coaching</text></svg>');
+        }
+
+        .nlp {
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><rect fill="%23fff0f5" width="400" height="200"/><circle fill="%2399686E" cx="80" cy="80" r="25" opacity="0.7"/><circle fill="%23FF9B8A" cx="320" cy="120" r="30" opacity="0.7"/><ellipse fill="%23B2AC88" cx="200" cy="100" rx="60" ry="40" opacity="0.8"/><text x="200" y="105" text-anchor="middle" fill="%23333" font-family="Arial" font-size="16">NLP</text></svg>');
+        }
+
+        .emotional {
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200"><rect fill="%23f0f8ff" width="400" height="200"/><circle fill="%23DCAE96" cx="100" cy="120" r="28" opacity="0.7"/><circle fill="%2399686E" cx="300" cy="80" r="32" opacity="0.7"/><path fill="%23B2AC88" d="M150 60 L250 60 L220 140 L180 140 Z" opacity="0.8"/><text x="200" y="105" text-anchor="middle" fill="%23333" font-family="Arial" font-size="14">EI</text></svg>');
         }
 
         /* Package Card Layout Styling */
@@ -363,62 +519,6 @@
             font-size: 1.2rem;
         }
 
-        /* Research Section */
-        .research {
-            padding: 100px 0;
-            background: linear-gradient(135deg, var(--main-color) 0%, var(--secondary-color) 100%);
-            color: var(--light-text-color);
-            text-align: center;
-        }
-
-        .research-card {
-            text-align: center;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .stat-number {
-            font-size: clamp(2rem, 6vw, 3rem);
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            color: var(--light-text-color);
-        }
-
-        .stat-label {
-            font-size: clamp(1rem, 2vw, 1.1rem);
-            opacity: 0.9;
-        }
-
-        .research-source {
-            text-align: center;
-            margin-top: 3rem;
-        }
-
-        .research-source p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            color: var(--light-text-color);
-        }
-
-        .research-source p:last-child {
-            font-size: 0.9rem;
-            opacity: 0.7;
-            margin-top: 0.5rem;
-        }
-
-        .research-source a {
-            color: inherit;
-            text-decoration: none;
-            transition: opacity 0.3s ease;
-        }
-
-        .research-source a:hover {
-            opacity: 1;
-        }
-
         /* Why Choose Us with Image Cards */
         .why-choose {
             background: #f5f7fa;
@@ -505,19 +605,6 @@
 
         .feature-card.coral .feature-content p {
             color: rgba(255, 255, 255, 0.9);
-        }
-
-        .read-more-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            text-decoration: none;
-            font-weight: 600;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            letter-spacing: 0.5px;
-            transition: all 0.3s ease;
-            margin-top: auto;
         }
 
         .feature-card.coral .read-more-btn {
@@ -711,7 +798,7 @@
             transform: scale(1.1);
         }
 
-        /* Mobile menu responsive */
+        /* Mobile responsive */
         @media (max-width: 768px) {
             header {
                 padding: 0.8rem 0;
@@ -745,7 +832,6 @@
             .hero-content {
                 padding-right: 0;
                 align-items: center;
-
             }
             .new-footer-main {
                 flex-direction: column;
@@ -776,11 +862,18 @@
                 border-radius: 15px;
             }
             .features-grid {
-                grid-template-columns: 1fr; /* Stack cards on top of each other */
+                grid-template-columns: 1fr;
                 gap: 1.5rem;
             }
             .footer-content {
                 grid-template-columns: 1fr;
+            }
+            /* Mobile carousel for detailed services */
+            .detailed-services-grid {
+                display: none;
+            }
+            .mobile-carousel {
+                display: block;
             }
         }
 
@@ -795,21 +888,6 @@
             opacity: 1;
             transform: translateY(0);
         }
-
-        .research-card[data-animated].visible {
-            animation: fadeInScale 0.6s ease forwards;
-        }
-
-        @keyframes fadeInScale {
-            from {
-                opacity: 0;
-                transform: scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
     </style>
 </head>
 <body>
@@ -821,8 +899,8 @@
             <ul class="nav-links" id="mobile-menu-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#services">Services</a></li>
+                <li><a href="#detailed-services">Our Expertise</a></li>
                 <li><a href="#packages">Programs</a></li>
-                <li><a href="#research">Research</a></li>
                 <li><a href="#blog">Blog</a></li>
                 <li><a href="#contact">Free Consult</a></li>
                 <li><a href="#contact-details">Contact</a></li>
@@ -839,7 +917,6 @@
                     <p data-animated>Transformative programs for individuals and organizations. Helping people thrive emotionally, mentally, socially, and professionally through evidence-based wellbeing solutions.</p>
                     <a href="#services" class="cta-button" data-animated>Explore Our Services</a>
                 </div>
-
             </div>
         </section>
 
@@ -876,6 +953,8 @@
                 </div>
             </div>
         </section>
+
+       
 
         <section id="packages" class="wellness-packages">
             <div class="container">
@@ -985,78 +1064,122 @@
             </div>
         </section>
 
-        <section id="research" class="research">
+        <section id="detailed-services" class="detailed-services">
             <div class="container">
-                <h2 class="section-title" style="color: white;">Why Wellbeing Matters—The Research</h2>
-                <div class="research-grid">
-                    <div class="research-card" data-animated>
-                        <div class="stat-number">21%</div>
-                        <div class="stat-label">Higher Productivity</div>
+                <h2 class="section-title">Our Expertise Areas</h2>
+                
+                <!-- Desktop Grid Layout -->
+                <div class="detailed-services-grid">
+                    <div class="detailed-service-card">
+                        <div class="detailed-service-image workshops"></div>
+                        <div class="detailed-service-content">
+                            <h3 class="detailed-service-title">Workshops and Seminars</h3>
+                            <p class="detailed-service-description">
+                                We offer a variety of workshops and seminars on topics such as goal setting, stress management, effective communication, and personal development strategies.
+                            </p>
+                            <a href="#" class="read-more-btn">Read More</a>
+                        </div>
                     </div>
-                    <div class="research-card" data-animated>
-                        <div class="stat-number">41%</div>
-                        <div class="stat-label">Lower Absenteeism</div>
+
+                    <div class="detailed-service-card">
+                        <div class="detailed-service-image coaching"></div>
+                        <div class="detailed-service-content">
+                            <h3 class="detailed-service-title">Life Coaching</h3>
+                            <p class="detailed-service-description">
+                                Our life coaching services are designed to help you identify your aspirations, clarify your goals, and develop actionable plans to achieve personal and professional success.
+                            </p>
+                            <a href="#" class="read-more-btn">Read More</a>
+                        </div>
                     </div>
-                    <div class="research-card" data-animated>
-                        <div class="stat-number">24%</div>
-                        <div class="stat-label">Lower Turnover</div>
+
+                    <div class="detailed-service-card">
+                        <div class="detailed-service-image nlp"></div>
+                        <div class="detailed-service-content">
+                            <h3 class="detailed-service-title">Neuro-Linguistic Programming (NLP) Sessions</h3>
+                            <p class="detailed-service-description">
+                                NLP is a powerful approach to communication, personal development, and behavioral change that helps you overcome limiting beliefs and achieve breakthrough results.
+                            </p>
+                            <a href="#" class="read-more-btn">Read More</a>
+                        </div>
                     </div>
-                    <div class="research-card" data-animated>
-                        <div class="stat-number">17%</div>
-                        <div class="stat-label">Higher Profitability</div>
+
+                    <div class="detailed-service-card">
+                        <div class="detailed-service-image emotional"></div>
+                        <div class="detailed-service-content">
+                            <h3 class="detailed-service-title">Emotional Intelligence (EI) Sessions</h3>
+                            <p class="detailed-service-description">
+                                Emotional Intelligence is the ability to recognize, understand, and manage your own emotions, as well as effectively navigate interpersonal relationships.
+                            </p>
+                            <a href="#" class="read-more-btn">Read More</a>
+                        </div>
                     </div>
                 </div>
-                <div class="research-source">
-                    <p>Meta-analysis of 339 studies involving 1.88 million employees across 82,248 business units</p>
-                    <p>
-                        <a href="https://www.hbs.edu/ris/Publication%20Files/gh19_ch5_9e171d71-db54-4e08-a2eb-3cf1587daf4a.pdf" target="_blank" rel="noopener noreferrer">
-                            Source: Harvard Business School & Gallup
-                        </a>
-                    </p>
+
+                <!-- Mobile Carousel -->
+                <div class="mobile-carousel">
+                    <div class="carousel-container" id="carouselContainer">
+                        <div class="carousel-slide">
+                            <div class="detailed-service-card">
+                                <div class="detailed-service-image workshops"></div>
+                                <div class="detailed-service-content">
+                                    <h3 class="detailed-service-title">Workshops and Seminars</h3>
+                                    <p class="detailed-service-description">
+                                        We offer a variety of workshops and seminars on topics such as goal setting, stress management, effective communication, and personal development strategies.
+                                    </p>
+                                    <a href="#" class="read-more-btn">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="carousel-slide">
+                            <div class="detailed-service-card">
+                                <div class="detailed-service-image coaching"></div>
+                                <div class="detailed-service-content">
+                                    <h3 class="detailed-service-title">Life Coaching</h3>
+                                    <p class="detailed-service-description">
+                                        Our life coaching services are designed to help you identify your aspirations, clarify your goals, and develop actionable plans to achieve personal and professional success.
+                                    </p>
+                                    <a href="#" class="read-more-btn">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="carousel-slide">
+                            <div class="detailed-service-card">
+                                <div class="detailed-service-image nlp"></div>
+                                <div class="detailed-service-content">
+                                    <h3 class="detailed-service-title">Neuro-Linguistic Programming (NLP) Sessions</h3>
+                                    <p class="detailed-service-description">
+                                        NLP is a powerful approach to communication, personal development, and behavioral change that helps you overcome limiting beliefs and achieve breakthrough results.
+                                    </p>
+                                    <a href="#" class="read-more-btn">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="carousel-slide">
+                            <div class="detailed-service-card">
+                                <div class="detailed-service-image emotional"></div>
+                                <div class="detailed-service-content">
+                                    <h3 class="detailed-service-title">Emotional Intelligence (EI) Sessions</h3>
+                                    <p class="detailed-service-description">
+                                        Emotional Intelligence is the ability to recognize, understand, and manage your own emotions, as well as effectively navigate interpersonal relationships.
+                                    </p>
+                                    <a href="#" class="read-more-btn">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-indicators" id="indicators">
+                        <div class="indicator active" onclick="goToSlide(0)"></div>
+                        <div class="indicator" onclick="goToSlide(1)"></div>
+                        <div class="indicator" onclick="goToSlide(2)"></div>
+                        <div class="indicator" onclick="goToSlide(3)"></div>
+                    </div>
                 </div>
             </div>
         </section>
-
-        <section id="why-choose" class="why-choose">
-            <div class="container">
-                <h2 class="section-title">Why Choose PS4Wellbeing?</h2>
-                <div class="features-grid">
-                    <div class="feature-card default" data-animated>
-                        <img src="image/ev.jpg" alt="Evidence-based approach" class="feature-image" loading="lazy">
-                        <div class="feature-content">
-                            <h3>Evidence-Based</h3>
-                            <p>Our programs are rooted in psychological research and proven models, ensuring scientifically-backed methods that drive real, measurable wellbeing improvement.</p>
-                            <a href="#" class="read-more-btn">READ MORE <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="feature-card coral" data-animated>
-                        <img src="image/cus.jpg" alt="Customizable solutions" class="feature-image" loading="lazy">
-                        <div class="feature-content">
-                            <h3>Customizable</h3>
-                            <p>We tailor every session to your needs, goals, and culture—delivering unique solutions for individuals, teams, and organizations alike.</p>
-                            <a href="#" class="read-more-btn">READ MORE <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="feature-card light-green" data-animated>
-                        <img src="image/e.jpg" alt="Engaging workshops" class="feature-image" loading="lazy">
-                        <div class="feature-content">
-                            <h3>Engaging</h3>
-                            <p>Interactive workshops, real-life exercises, and practical tools create high-impact, participant-driven experiences that spark learning and emotional connection.</p>
-                            <a href="#" class="read-more-btn">READ MORE <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="feature-card light-coral" data-animated>
-                        <img src="image/l.jpg" alt="Long-lasting impact" class="feature-image" loading="lazy">
-                        <div class="feature-content">
-                            <h3>Lasting Impact</h3>
-                            <p>We focus on sustainable transformation, equipping you with tools, habits, and mindsets that support long-term personal and professional wellbeing.</p>
-                            <a href="#" class="read-more-btn">READ MORE <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <div class="new-footer-section-bar">
             <div class="container">
                 <h3>Thank you for choosing PS4Wellbeing. We look forward to empowering you on your journey of self-discovery and learning....</h3>
@@ -1197,40 +1320,127 @@
             animatedObserver.observe(el);
         });
 
-        // Animated counter for statistics
-        function animateCounters() {
-            const counters = document.querySelectorAll('.stat-number');
-            counters.forEach(counter => {
-                const target = parseInt(counter.textContent);
-                const increment = target / 100;
-                let current = 0;
-                
-                const updateCounter = () => {
-                    if (current < target) {
-                        current += increment;
-                        counter.textContent = Math.ceil(current) + '%';
-                        requestAnimationFrame(updateCounter);
-                    } else {
-                        counter.textContent = target + '%';
+        // SERVICES CAROUSEL FUNCTIONALITY
+        let currentSlide = 0;
+        const totalSlides = 4;
+        const carouselContainer = document.getElementById('carouselContainer');
+        const indicators = document.querySelectorAll('.indicator');
+        let autoPlayInterval;
+        let isAutoPlaying = true;
+
+        // Auto-play functionality
+        function startAutoPlay() {
+            if (window.innerWidth <= 768) {
+                autoPlayInterval = setInterval(() => {
+                    if (isAutoPlaying) {
+                        nextSlide();
                     }
-                };
+                }, 3000); // Change slide every 3 seconds
+            }
+        }
+
+        function stopAutoPlay() {
+            clearInterval(autoPlayInterval);
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateCarousel();
+        }
+
+        function goToSlide(slideIndex) {
+            currentSlide = slideIndex;
+            updateCarousel();
+            // Temporarily stop auto-play when user interacts
+            isAutoPlaying = false;
+            stopAutoPlay();
+            setTimeout(() => {
+                isAutoPlaying = true;
+                startAutoPlay();
+            }, 5000); // Resume auto-play after 5 seconds
+        }
+
+        function updateCarousel() {
+            if (carouselContainer) {
+                const translateX = -currentSlide * 25;
+                carouselContainer.style.transform = `translateX(${translateX}%)`;
                 
-                updateCounter();
+                // Update indicators
+                indicators.forEach((indicator, index) => {
+                    indicator.classList.toggle('active', index === currentSlide);
+                });
+            }
+        }
+
+        // Touch/swipe functionality
+        let startX = 0;
+        let startY = 0;
+        let isDragging = false;
+
+        if (carouselContainer) {
+            carouselContainer.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+                startY = e.touches[0].clientY;
+                isDragging = true;
+                isAutoPlaying = false;
+                stopAutoPlay();
+            });
+
+            carouselContainer.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                e.preventDefault();
+            });
+
+            carouselContainer.addEventListener('touchend', (e) => {
+                if (!isDragging) return;
+                isDragging = false;
+                
+                const endX = e.changedTouches[0].clientX;
+                const endY = e.changedTouches[0].clientY;
+                const diffX = startX - endX;
+                const diffY = startY - endY;
+                
+                // Check if it's a horizontal swipe (not vertical scroll)
+                if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+                    if (diffX > 0) {
+                        // Swipe left - next slide
+                        currentSlide = (currentSlide + 1) % totalSlides;
+                    } else {
+                        // Swipe right - previous slide
+                        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                    }
+                    updateCarousel();
+                }
+                
+                // Resume auto-play after interaction
+                setTimeout(() => {
+                    isAutoPlaying = true;
+                    startAutoPlay();
+                }, 3000);
             });
         }
 
-        const researchSection = document.querySelector('.research');
-        if (researchSection) {
-            const researchObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        animateCounters();
-                        researchObserver.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.3 });
-            researchObserver.observe(researchSection);
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            stopAutoPlay();
+            if (window.innerWidth <= 768) {
+                startAutoPlay();
+            }
+        });
+
+        // Initialize carousel
+        if (window.innerWidth <= 768) {
+            startAutoPlay();
         }
+
+        // Pause auto-play when page is not visible
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                stopAutoPlay();
+            } else if (window.innerWidth <= 768) {
+                startAutoPlay();
+            }
+        });
     </script>
 </body>
 </html>
