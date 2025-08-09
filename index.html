@@ -156,12 +156,20 @@
         }
 
         .heading-logo {
-            width: clamp(250px, 30vw, 400px); 
+            width: clamp(250px, 50vw, 600px); 
             height: auto;
             max-width: 100%;
             display: block;
             margin-bottom: 1.5rem;
         }
+.h1-size-text {
+    font-family: 'Abadi MT', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: normal; /* not bold */
+    margin: 0;
+    color: var(--light-text-color);
+}
+
 
         .hero h1 {
             font-size: clamp(2rem, 5vw, 3.5rem);
@@ -596,18 +604,23 @@
 }
 
 .package-features li {
-    padding-left: 1.5rem;
     position: relative;
-    line-height: 1.8;
+    padding-left: 1.5rem; /* space for the button */
 }
 
 .package-features li::before {
-    content: '✓';
+    content: '';
     position: absolute;
     left: 0;
-    color: var(--main-color);
-    font-weight: bold;
+    top: 0.4em;
+    width: 7px; 
+    height: 7px;
+    background-color: var(--main-color); 
+    border-radius: 2px;
+    display: inline-block;
 }
+
+
 
 @media (min-width: 768px) {
     .package-item {
@@ -903,8 +916,10 @@
         <section id="home" class="hero">
             <div class="container">
                 <div class="hero-content">
-                    <img src="image/lg.png" alt="Positive Synergy 4 Wellbeing" class="heading-logo" />
-                    <p data-animated>Transformative programs for individuals and organizations. Helping people thrive emotionally, mentally, socially, and professionally through evidence-based wellbeing solutions.</p>
+                    <img src="image/logoooooo.png" alt="Positive Synergy 4 Wellbeing" class="heading-logo" />
+<h class="h1-size-text"><i>Positive Synergy 4 Wellbeing</i></h>
+
+                    <p data-animated><i>Transformative programs for individuals and organizations. Helping people thrive emotionally, mentally, socially, and professionally through evidence-based wellbeing solutions.</i></p>
                     <a href="#services" class="cta-button" data-animated>Explore Our Services</a>
                 </div>
             </div>
@@ -1107,7 +1122,7 @@
                     <p style="font-size: 1.1rem; opacity: 0.9;">Meta-analysis of 339 studies involving 1.88 million employees across 82,248 business units</p>
                     <p style="font-size: 0.9rem; opacity: 0.7; margin-top: 0.5rem;">
                         <a href="https://www.hbs.edu/ris/Publication%20Files/gh19_ch5_9e171d71-db54-4e08-a2eb-3cf1587daf4a.pdf" target="_blank" style="color: inherit; text-decoration: none;" rel="noopener noreferrer">
-                            Source: Harvard Business School & Gallup
+                            <u>Source: Harvard Business School & Gallup</u>
                         </a>
                     </p>
 <br>
@@ -1115,15 +1130,16 @@
 <br>
  <p style="margin-bottom: 1rem; font-weight: 600;">Workplace wellbeing also improves:</p>
                                 <ul class="outcome-list">
-                                    <li><i class="fas fa-heart"></i><strong>Customer satisfaction</strong></li>
                                     <li><i class="fas fa-users"></i> </i><strong>Team cohesion</strong></li>
+                                    <li><i class="fas fa-heart"></i><strong>Customer satisfaction</strong></li>
+
 
                                     <li><i class="fas fa-brain"></i> </i><strong> Innovation and adaptability </strong></li>
 
 
 <p style="font-size: 0.9rem; opacity: 0.7; margin-top: 0.5rem;">
-                        <a href="https://wellbeing.hmc.ox.ac.uk/publications/employee-wellbeing-productivity-and-firm-performance/" target="_blank" style="color: inherit; text-decoration: none;" rel="noopener noreferrer">
-                            Source: Oxford Wellbeing Research Centre
+                        <a href="https://wellbeing.hmc.ox.ac.uk/publications/employee-wellbeing-productivity-and-firm-performance/" target="_blank" style="color: inherit; text-decoration: none;" rel="noopener noreferrer"><u>
+                            Source: Oxford Wellbeing Research Centre</u>
                         </a>
                     </p>
 
@@ -1144,13 +1160,14 @@
                             </div>
                             <h3 style="color: white; margin-bottom: 1.5rem; font-size: 1.5rem;">Individual Outcomes</h3>
                             <div class="individual-outcomes">
-                                <p style="margin-bottom: 1rem; font-weight: 600;">Subjective wellbeing leads to:</p>
+                               <p style="margin-bottom: 1rem; font-weight: 600;"><!--Subjective wellbeing leads to:--></p>
 
-<ul class="outcome-list">
-    <li><i class="fas fa-heart"></i> Better <strong>physical health</strong> and <strong>immune function</strong></li>
-    <li><i class="fas fa-brain"></i> Enhanced <strong>creativity, focus</strong>, and <strong>problem-solving</strong></li>
-    <li><i class="fas fa-users"></i> Stronger <strong>relationships</strong> and <strong>social support</strong></li>
-    <li><i class="fas fa-star"></i> Greater <strong>life satisfaction</strong>, <strong>self-esteem</strong>, and <strong>sense of purpose</strong></li>
+<ul class="outcome-list"> 
+    <li><i class="fas fa-users"></i><strong>Stronger relationships and social support</strong></li>
+    <li><i class="fas fa-heart"></i> <strong>Better physical health and immune function</strong></li>
+    <li><i class="fas fa-brain"></i><strong>Enhanced creativity,focus and problem-solving</strong></li>
+
+    <li><i class="fas fa-star"></i><strong> Greater life satisfaction,self-esteem, and sense of purpose</strong></li>
 </ul>
 
 
@@ -1303,12 +1320,12 @@
                     </div>
                 </div>
             </div>
-        </section>
+      <!--  </section>
         <div class="new-footer-section-bar">
             <div class="container">
                 <h3>Thank you for choosing PS4Wellbeing. We look forward to empowering you on your journey of self-discovery and learning....</h3>
             </div>
-        </div>
+        </div>-->
 
         <section id="footer" class="new-footer-section">
             <div class="container">
@@ -1323,9 +1340,11 @@
                             foster overall development as a person.
                         </p>
                         <div class="social-icons">
-                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                           
+			  <a href="https://wa.me/97466648078" aria-label="WhatsApp" target="_blank">
+    <i class="fab fa-whatsapp"></i></a>
+<a href="mailto:ps4wellbeing@gmail.com" aria-label="Gmail"><i class="fas fa-envelope"></i></a>
+
                         </div>
                     </div>
                     <div class="new-footer-links">
