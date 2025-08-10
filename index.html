@@ -811,7 +811,7 @@
                 padding: 0.8rem 0;
             }
             .logo-image {
-                height: 60px;
+                height: 80px;
             }
             .nav-links {
                 display: none;
@@ -906,10 +906,21 @@
 
                 <li><a href="#research">Research</a></li>
                 <li><a href="#detailed-services">Our Expertise</a></li>
-                <li><a href="#blog">Blog</a></li>
+		<li><a href="blog.html" id="blog-link">Blog</a></li>
                 <li><a href="https://wa.me/+974 66648078" target="_blank" >Free Consult</a></li>
                 <li><a href="#contact-details">Contact</a></li>
             </ul>
+
+
+<section id="blog" style="display:none; padding:100px 0; background:var(--light-bg-color);">
+  <div class="container">
+    <h2 class="section-title">Blog</h2>
+    <p>At PS4Wellbeing, we believe true wellness is more than physical health—it’s a balance of mind, body, and spirit. Our tailored wellness programs are designed to help you reduce stress, improve energy, and achieve your personal health goals. Whether you’re seeking relaxation through massage therapies, guidance on nutrition, or holistic practices for emotional well-being, our expert team is here to support you every step of the way. Start your journey with PS4Wellbeing and embrace a healthier, more vibrant life today.</p>
+  </div>
+</section>
+
+
+
             <button class="mobile-menu-btn" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobile-menu-links">☰</button>
         </nav>
     </header>
@@ -1360,7 +1371,7 @@
                 <li><a href="#research">Research</a></li>
                 <li><a href="#detailed-services">Our Expertise</a></li>
                 <li><a href="#blog">Blog</a></li>
-                <li><a href="#contact">Free Consult</a></li>
+                <li><a href="https://wa.me/+917994144334"  target="_blank" >Free Consult</a></li>
                 <li><a href="#contact-details">Contact</a></li>
 
 
@@ -1403,7 +1414,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 PS4Wellbeing - Positive Synergy 4 Wellbeing. All rights reserved.</p>
+                <p>&copy; 2025 PS4Wellbeing - Positive Synergy 4 Wellbeing. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -1622,6 +1633,50 @@
                 startAutoPlay();
             }
         });
+
+//blog
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+
+        // Check if the link is a hashtag link that points to a section on the page
+        if (targetId.startsWith('#')) {
+            e.preventDefault();
+
+            // Handle the "Blog" link specifically
+            if (targetId === '#blog') {
+                // Hide all sections within the <main> tag except for the blog section
+                document.querySelectorAll('main section:not(#blog)').forEach(sec => {
+                    sec.style.display = 'none';
+                });
+
+                // Show the blog section and scroll to it
+                const blogSection = document.querySelector('#blog');
+                if (blogSection) {
+                    blogSection.style.display = 'block';
+                    blogSection.scrollIntoView({ behavior: 'smooth' });
+                }
+
+            } else {
+                // For all other links, show all main content sections and hide the blog section
+                document.querySelectorAll('main section').forEach(sec => {
+                    sec.style.display = ''; // Reset to default display
+                });
+                document.querySelector('#blog').style.display = 'none';
+
+                // Then, scroll to the correct section
+                const target = document.querySelector(targetId);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            }
+        }
+    });
+});
     </script>
 </body>
 </html>
+
