@@ -564,6 +564,44 @@
     gap: 2rem;
     margin-bottom: 2rem;
 }
+.service-card,
+.package-item {
+    display: flex;
+    align-items: flex-start;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    gap: 20px;
+    padding: 20px;
+}
+
+.service-card img,
+.package-item img {
+    flex: 0 0 25%; /* Image takes 25% width */
+    height: auto;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.service-card-content,
+.package-content {
+    flex: 1; /* Text takes remaining space */
+}
+
+@media (max-width: 768px) {
+    .service-card,
+    .package-item {
+        flex-direction: column;
+    }
+
+    .service-card img,
+    .package-item img {
+        flex: none;
+        width: 100%;
+    }
+}
 
 .package-image {
     width: 100%;
@@ -597,6 +635,119 @@
             margin-bottom: 1rem;
             font-size: 1.5rem;
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /* New Package Card Layout Styling */
+        .packages-container {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+            margin-top: 4rem;
+        }
+
+        .package-item {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .package-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .package-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .package-image {
+            flex: 0 0 450px;
+            height: 450px;
+            border-radius: 2px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .package-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .package-item:hover .package-image img {
+            transform: scale(1.05);
+        }
+
+        .package-content {
+            flex: 1;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid rgba(153, 104, 110, 0.1);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .package-content h3 {
+            color: var(--main-color);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .package-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .package-features {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .package-features li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .package-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--main-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 .package-features {
@@ -891,6 +1042,7 @@
             opacity: 1;
             transform: translateY(0);
         }
+
     </style>
 </head>
 <body>
@@ -942,19 +1094,20 @@
             <div class="container">
                 <h2 class="section-title">Our Services</h2>
                 <div class="services-grid">
-                    <div class="service-card" data-animated>
-                        <img src="image/1.jpeg" alt="A group of employees in a corporate training session" class="service-card-image" loading="lazy">
-                        <div class="service-card-content">
-                            <h3>Corporate Training</h3>
-                            <p>We partner with organizations to deliver immersive wellbeing workshops that boost employee engagement, resilience, and emotional intelligence.</p>
-                            <ul class="package-features">
-                                <li>On-site or virtual workshops</li>
-                                <li>Reflective exercises and workbooks</li>
-                                <li>Leadership development modules</li>
-                                <li>Wellbeing strategy consulting</li>
-                            </ul>
-                        </div>
-                    </div>
+                   <div class="service-card" data-animated>
+    <img src="image/1.jpeg" alt="A group of employees in a corporate training session" loading="lazy">
+    <div class="service-card-content">
+        <h3>Corporate Training</h3>
+        <p>We partner with organizations to deliver immersive wellbeing workshops...</p>
+        <ul class="package-features">
+            <li>On-site or virtual workshops</li>
+            <li>Reflective exercises and workbooks</li>
+            <li>Leadership development modules</li>
+            <li>Wellbeing strategy consulting</li>
+        </ul>
+    </div>
+</div>
+
                     <div class="service-card" data-animated>
                         <img src="image/14.jpeg" alt="A coach and a client having an individual coaching session" class="service-card-image" loading="lazy">
                         <div class="service-card-content">
