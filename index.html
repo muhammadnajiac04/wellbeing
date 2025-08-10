@@ -67,14 +67,14 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(191,173,140,255);
             backdrop-filter: blur(10px);
             z-index: 1000;
             padding: 1rem 0;
             transition: all 0.3s ease;
         }
         header.scrolled {
-            background: rgba(255, 255, 255, 0.98);
+            background: rgba(191,173,140,255);
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
         }
 
@@ -155,13 +155,12 @@
             align-items: flex-start;
         }
 
-        .heading-logo {
-            width: clamp(250px, 50vw, 600px); 
-            height: auto;
-            max-width: 100%;
-            display: block;
-            margin-bottom: 1.5rem;
-        }
+.heading-logo {
+    width: 90vw; 
+    max-width: 600px;
+    height: auto;
+}
+
 .h1-size-text {
     font-family: 'Abadi MT', sans-serif;
     font-size: clamp(2rem, 5vw, 3.5rem);
@@ -1043,6 +1042,7 @@
             transform: translateY(0);
         }
 
+
     </style>
 </head>
 <body>
@@ -1063,13 +1063,6 @@
                 <li><a href="#contact-details">Contact</a></li>
             </ul>
 
-
-<section id="blog" style="display:none; padding:100px 0; background:var(--light-bg-color);">
-  <div class="container">
-    <h2 class="section-title">Blog</h2>
-    <p>At PS4Wellbeing, we believe true wellness is more than physical health—it’s a balance of mind, body, and spirit. Our tailored wellness programs are designed to help you reduce stress, improve energy, and achieve your personal health goals. Whether you’re seeking relaxation through massage therapies, guidance on nutrition, or holistic practices for emotional well-being, our expert team is here to support you every step of the way. Start your journey with PS4Wellbeing and embrace a healthier, more vibrant life today.</p>
-  </div>
-</section>
 
 
 
@@ -1095,7 +1088,7 @@
                 <h2 class="section-title">Our Services</h2>
                 <div class="services-grid">
                    <div class="service-card" data-animated>
-    <img src="image/1.jpeg" alt="A group of employees in a corporate training session" loading="lazy">
+    <img src="image/1.jpeg" alt="A group of employees in a corporate training session" class="service-card-image" loading="lazy">
     <div class="service-card-content">
         <h3>Corporate Training</h3>
         <p>We partner with organizations to deliver immersive wellbeing workshops...</p>
@@ -1542,7 +1535,7 @@
                 </div>
             </div>
         </section>
-    </main>
+ 
 
     <footer id="contact-details">
         <div class="container">
@@ -1574,7 +1567,7 @@
     <a href="https://wa.me/+917994144334" class="whatsapp-btn" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
         <img src="image/w.png" alt="WhatsApp" style="width: 30px; height: 30px;">
     </a>
-
+   </main>
     <script>
         // Mobile menu toggle
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
