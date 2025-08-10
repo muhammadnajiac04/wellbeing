@@ -100,7 +100,7 @@
 
         .nav-links a {
             text-decoration: none;
-            color: var(--text-color);
+            color: #99686E;
             font-weight: 500;
             transition: color 0.3s ease;
             position: relative;
@@ -253,10 +253,12 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
+ background: linear-gradient(135deg, var(--main-color) 0%, var(--secondary-color) 50%, var(--accent-color) 100%);
         }
 
         .service-card:hover {
             transform: translateY(-10px);
+ background: linear-gradient(135deg, var(--main-color) 0%, var(--secondary-color) 50%, var(--accent-color) 100%);
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
         }
 
@@ -265,22 +267,26 @@
             height: 400px;
             object-fit: cover;
             border-top-left-radius: 15px;
+ background: linear-gradient(135deg, var(--main-color) 0%, var(--secondary-color) 50%, var(--accent-color) 100%);
             border-top-right-radius: 15px;
         }
 
         .service-card-content {
             padding: 2rem;
             flex-grow: 1;
+ background: linear-gradient(135deg, var(--main-color) 0%, var(--secondary-color) 50%, var(--accent-color) 100%);
         }
 
         .service-card-content h3 {
             color: var(--main-color);
             margin-bottom: 1rem;
             font-size: 1.9rem;
+ background: linear-gradient(135deg, var(--main-color) 0%, var(--secondary-color) 50%, var(--accent-color) 100%);
         }
 
         .service-card-content p {
             margin-bottom: 1rem;
+ background: linear-gradient(135deg, var(--main-color) 0%, var(--secondary-color) 50%, var(--accent-color) 100%);
         }
 
         /* Research Section */
@@ -666,14 +672,17 @@
             gap: 3rem;
             margin-bottom: 2rem;
             transition: all 0.3s ease;
+ background: linear-gradient(135deg, var(--main-color) 0%, var(--secondary-color) 50%, var(--accent-color) 100%);
         }
 
         .package-item:hover {
             transform: translateY(-5px);
+
         }
 
         .package-item:nth-child(even) {
             flex-direction: row-reverse;
+
         }
 
         .package-image {
@@ -682,6 +691,7 @@
             border-radius: 2px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+
         }
 
         .package-image img {
@@ -689,6 +699,7 @@
             height: 100%;
             object-fit: cover;
             transition: transform 0.3s ease;
+
         }
 
         .package-item:hover .package-image img {
@@ -697,7 +708,7 @@
 
         .package-content {
             flex: 1;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+ background: linear-gradient(135deg, var(--main-color) 0%, var(--secondary-color) 50%, var(--accent-color) 100%);
             padding: 2.5rem;
             border-radius: 20px;
             border: 1px solid rgba(153, 104, 110, 0.1);
@@ -756,11 +767,13 @@
     list-style: none;
     padding: 0;
     margin-top: 1rem;
+ background: linear-gradient(135deg, var(--main-color) 0%, var(--secondary-color) 50%, var(--accent-color) 100%);
 }
 
 .package-features li {
     position: relative;
     padding-left: 1.5rem;
+ background: linear-gradient(135deg, var(--main-color) 0%, var(--secondary-color) 50%, var(--accent-color) 100%);
 }
 
 .package-features li::before {
@@ -770,7 +783,8 @@
     top: 0.4em;
     width: 6px; 
     height: 6px; 
-    background-color: var(--main-color);
+ background: linear-gradient(135deg, var(--main-color) 0%, var(--secondary-color) 50%, var(--accent-color) 100%);
+
     border-radius: 50%;
     display: inline-block;
 }
@@ -1828,5 +1842,4 @@ document.querySelectorAll('.nav-links a').forEach(link => {
     </script>
 </body>
 </html>
-
 
