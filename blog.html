@@ -63,7 +63,8 @@
         }
 
         /* Header & Navigation */
-header {
+        /* Header & Navigation */
+        header {
             position: fixed;
             top: 0;
             width: 100%;
@@ -87,7 +88,7 @@ header {
         }
 
         .logo-image {
-            height: 100px;
+            height: 105px;
             width: auto;
             transition: height 0.3s ease;
         }
@@ -102,7 +103,7 @@ header {
 
         .nav-links a {
             text-decoration: none;
-            color: var(--text-color);
+            color: #99686E;
             font-weight: 500;
             transition: color 0.3s ease;
             position: relative;
@@ -125,6 +126,15 @@ header {
 
         .nav-links a:hover::after {
             width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--main-color);
         }
 
         /* Hero Section */
@@ -274,14 +284,15 @@ header {
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
 
-        .post-image {
-            width: 100%;
-            height: 350px;
-            background-size: cover;
-            background-position: center;
-            border-top-left-radius: 15px;
-            border-top-right-radius: 15px;
-        }
+.post-image {
+    width: calc(100% - 60px); /* Shrink width to create space */
+    height: 350px;
+    background-size: cover;
+    background-position: center;
+    border-top-left-radius: 60px;
+    border-bottom-right-radius: 60px;
+    margin: 35px auto 0; /* Creates top & side space */
+}
 
         .post-content {
             padding: 2rem;
@@ -489,18 +500,18 @@ header {
     <header>
         <nav class="container">
             <a href="#home" class="logo" aria-label="PS4Wellbeing Home">
-                <img src="image/logooo.png" class="logo-image" alt="PS4Wellbeing Logo">
+                <img src="image/loggooo.png" class="logo-image" alt="PS4Wellbeing Logo">
             </a>
             <ul class="nav-links" id="mobile-menu-links">
-                <li><a href="index.html#home">Home</a></li>
-                <li><a href="index.html#services">Services</a></li>
-                <li><a href="index.html#packages">Programs</a></li>
+                <li><a href="11.html#home">Home</a></li>
+                <li><a href="11.html#services">Services</a></li>
+                <li><a href="11.html#packages">Programs</a></li>
 
-                <li><a href="index.html#research">Research</a></li>
-                <li><a href="index.html#detailed-services">Our Expertise</a></li>
-                <li><a href="blog" id="blog-link">Blog</a></li>
+                <li><a href="11.html#research">Research</a></li>
+                <li><a href="11.html#detailed-services">Our Expertise</a></li>
+                <li><a href="blog.html" id="blog-link">Blog</a></li>
                 <li><a href="https://wa.me/+974 66648078" target="_blank" >Free Consult</a></li>
-                <li><a href="index.html#contact-details">Contact</a></li>
+                <li><a href="11.html#contact-details">Contact</a></li>
             </ul>
 <button class="mobile-menu-btn" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobile-menu-links">☰</button>
 
@@ -587,6 +598,10 @@ By consistently following a morning routine tailored to your lifestyle, you’ll
             </div>
         </div>
     </section>
+    <a href="https://wa.me/97466648078" class="whatsapp-btn" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
+        <img src="image/w.png" alt="WhatsApp logo" width="30" height="30">
+    </a>
+
 <script>
 
  // Mobile menu toggle
@@ -636,5 +651,3 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </body>
 </html>
-
-
