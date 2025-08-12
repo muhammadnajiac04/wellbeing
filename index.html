@@ -199,6 +199,14 @@
         .wellness-packages {
             background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-color) 50%, var(--main-color) 100%);
         }
+/* Zoom effect for Wellness Packages section images */
+.wellness-packages .card-image img {
+    transition: transform 0.5s ease;
+}
+
+.wellness-packages .card-image:hover img {
+    transform: scale(1.03);
+}
 
         .section-title {
             text-align: center;
@@ -232,21 +240,26 @@
             background: var(--card-bg-color);
             border-radius: 15px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
+ transition: all 0.4s ease;
+
             display: flex;
             flex-direction: column;
             overflow: hidden;
         }
 
         .service-card:hover {
-            transform: translateY(-10px);
+            transform: scale(1.05); /* zoom entire card */
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
         }
-
+.service-card:hover .service-card-image {
+    transform: scale(1.05); /* Same zoom as detailed-services */
+}
         .service-card-image {
             width: 100%;
             height: 300px;
             object-fit: cover;
+ transition: transform 0.5s ease;
+
         }
 
         .service-card-content {
@@ -297,6 +310,7 @@
             justify-content: center;
             padding: calc(var(--img-margin) * 1);
             background: var(--card-image-bg, #E8D5C6);
+
         }
 
         .card-image img {
@@ -306,6 +320,7 @@
             height: clamp(220px, 30vw, 360px);
             object-fit: cover;
             margin: 0;
+transition: transform 0.5s ease;
         }
 
         .card:nth-child(odd) .card-image img {
@@ -819,7 +834,7 @@
         /* Tablet Responsive */
         @media (min-width: 769px) and (max-width: 1024px) {
             .detailed-services-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(4, 1fr);
             }
 
             .services-grid {
