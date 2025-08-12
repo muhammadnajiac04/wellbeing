@@ -29,7 +29,7 @@
             /* Card specific variables */
             --card-radius: 18px;
             --img-radius: 80px;
-            --img-margin: 60px;
+            --img-margin: 40px;
             --gap: 20px;
         }
         
@@ -197,7 +197,7 @@
         }
 
         .wellness-packages {
-            background: linear-gradient(135deg, var(--main-color) 0%, var(--secondary-color) 50%, var(--accent-color) 100%);
+            background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-color) 50%, var(--main-color) 100%);
         }
 
         .section-title {
@@ -359,22 +359,26 @@
             content: '•';
             position: absolute;
             left: 0;
-            color: var(--main-color);
+            color:linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-color) 50%, var(--main-color) 100%);
+
             font-weight: bold;
             font-size: 1.2rem;
         }
+
 
         /* Desktop alternate layout */
         @media (min-width: 769px) {
             .card:nth-child(even) {
                 flex-direction: row-reverse;
             }
+
         }
 
         @media (max-width: 1024px) {
             .card-image img { 
                 max-width: 520px; 
             }
+
         }
 
         @media (max-width: 768px) {
@@ -487,7 +491,7 @@
         /* Detailed Services */
         .detailed-services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 30px;
             margin-bottom: 40px;
         }
@@ -860,8 +864,8 @@
             <div class="container">
                 <div class="hero-content">
                     <img src="image/ps1.png" alt="Positive Synergy 4 Wellbeing" class="heading-logo" />
-                    <h1 class="h1-size-text">Positive Synergy for Wellbeing</h1>
-                    <p data-animated>Transformative programs for individuals and organizations. Helping people thrive emotionally, mentally, socially, and professionally through evidence-based wellbeing solutions.</p>
+                    <h1  style="font-family:garamond,serif;" class="h1-size-text" >Positive Synergy for Wellbeing</h1>
+                    <p  style="font-family:garamond,serif;" data-animated>Transformative programs for individuals and organizations. Helping people thrive emotionally, mentally, socially, and professionally through evidence-based wellbeing solutions.</p>
                     <a href="#services" class="cta-button" data-animated>Explore Our Services</a>
                 </div>
             </div>
@@ -872,10 +876,12 @@
                 <h2 class="section-title">Our Services</h2>
                 <div class="services-grid">
                     <div class="service-card" data-animated>
-                        <img src="image/1.jpeg" alt="A group of employees in a corporate training session" class="service-card-image" loading="lazy">
+                        <img src="image/1.jpeg" alt="Corporate Training" class="service-card-image" loading="lazy">
                         <div class="service-card-content">
                             <h3>Corporate Training</h3>
-                            <p>We partner with organizations to deliver immersive wellbeing workshops...</p>
+                            <p>We partner with organizations to deliver immersive wellbeing workshops that boost employee 
+engagement, resilience, and emotional intelligence. Our training is tailored to your team’s needs 
+and includes :</p>
                             <ul class="package-features">
                                 <li>On-site or virtual workshops</li>
                                 <li>Reflective exercises and workbooks</li>
@@ -886,15 +892,27 @@
                     </div>
 
                     <div class="service-card" data-animated>
-                        <img src="image/14.jpeg" alt="A coach and a client having an individual coaching session" class="service-card-image" loading="lazy">
+                        <img src="image/14.jpeg" alt="1:1 Coaching" class="service-card-image" loading="lazy">
                         <div class="service-card-content">
                             <h3>1:1 Coaching</h3>
-                            <p>Our certified coaches offer personalized support to help individuals navigate life's challenges and achieve their fullest potential.</p>
+                            <p>Our certified coaches offer personalized support to help individuals navigate life's challenges and achieve their fullest potential :</p>
                             <ul class="package-features">
                                 <li>Navigate life transitions</li>
                                 <li>Build emotional resilience</li>
                                 <li>Improve relationships and self-awareness</li>
                                 <li>Align personal values with professional goals</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="service-card" data-animated>
+                        <img src="image/2.jpg" alt="Women Wellness Circle" class="service-card-image" loading="lazy">
+                        <div class="service-card-content">
+                            <h3>Women Wellness Circle</h3>
+                            <p>We offer exclusive group training sessions for women, focused on emotional balace and clarity :</p>
+                            <ul class="package-features">
+                                <li>These sessions provide a supportive, women only environment</li>
+                                <li>Women can connect, grow and thrive - together</li>
+                       
                             </ul>
                         </div>
                     </div>
@@ -908,7 +926,7 @@
                 <div class="card-container">
                     <div class="card" data-animated>
                         <div class="card-image" style="--card-image-bg:#DCAE96;">
-                            <img src="image/1.jpg" alt="NLP" loading="lazy">
+                            <img src="image/17.jpeg" alt="Wellness Foundations" loading="lazy">
                         </div>
                         <div class="card-content" style="background-color: #DCAE96;">
                             <h2>Wellness Foundations</h2>
@@ -926,7 +944,7 @@
 
                     <div class="card" data-animated>
                         <div class="card-image" style="--card-image-bg:#99686E;">
-                            <img src="image/12.jpeg" alt="EI" loading="lazy">
+                            <img src="image/12.jpeg" alt="Positive Psychology" loading="lazy">
                         </div>
                         <div class="card-content" style="background-color: #99686E;">
                             <h2>Positive Psychology</h2>
@@ -944,7 +962,7 @@
 
                     <div class="card" data-animated>
                         <div class="card-image" style="--card-image-bg:#B2AC88;">
-                            <img src="image/18.jpeg" alt="Workshops" loading="lazy">
+                            <img src="image/18.jpeg" alt="Emotional Intelligence" loading="lazy">
                         </div>
                         <div class="card-content" style="background-color: #B2AC88;">
                             <h2>Emotional Intelligence</h2>
@@ -962,7 +980,7 @@
 
                     <div class="card" data-animated>
                         <div class="card-image" style="--card-image-bg:#DCAE96;">
-                            <img src="image/19.jpeg" alt="Coaching" loading="lazy">
+                            <img src="image/19.jpeg" alt="Mindfulness Mastery" loading="lazy">
                         </div>
                         <div class="card-content" style="background-color: #DCAE96;">
                             <h2>Mindfulness Mastery</h2>
@@ -980,7 +998,7 @@
 
                     <div class="card" data-animated>
                         <div class="card-image" style="--card-image-bg:#99686E;">
-                            <img src="image/16.jpeg" alt="Workshops" loading="lazy">
+                            <img src="image/16.jpeg" alt="Job Crafting" loading="lazy">
                         </div>
                         <div class="card-content" style="background-color: #99686E;">
                             <h2>Job Crafting</h2>
@@ -997,7 +1015,7 @@
 
                     <div class="card" data-animated>
                         <div class="card-image" style="--card-image-bg:#B2AC88;">
-                            <img src="image/15.jpeg" alt="Coaching" loading="lazy">
+                            <img src="image/15.jpeg" alt="Resilience Building" loading="lazy">
                         </div>
                         <div class="card-content" style="background-color: #B2AC88;">
                             <h2>Resilience Building</h2>
