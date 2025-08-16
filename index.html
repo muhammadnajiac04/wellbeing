@@ -9,31 +9,31 @@
     <meta name="author" content="PS4Wellbeing">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.ps4wellbeing.com/">
-
+    
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
+    
     <style>
-        /* CSS Variables */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+        /* CSS Variables - New Color Theme */
         :root {
-            --main-color: #99686E;
-            --secondary-color: #DCAE96;
-            --accent-color: #B2AC88;
-            --coral-color: #FF9B8A;
-            --text-color: #333;
-            --light-bg-color: #f8f9fa;
+            --main-color: #a7805a;
+            --secondary-color: #dcc9b0;
+            --accent-color: #aea781;
+            --coral-color: #d4a574;
+            --text-color: #4a3c2a;
+            --light-bg-color: #f8f6f2;
             --card-bg-color: #ffffff;
             --light-text-color: #fff;
-            --footer-bg-color: #f0f4f2;
-            
-            /* Card specific variables */
+            --footer-bg-color: #f2f0ec;
             --card-radius: 18px;
             --img-radius: 80px;
             --img-margin: 40px;
             --gap: 20px;
         }
-        
-        /* Base Styles */
+
+        /* Base Styles & Typography (Mobile-First) */
         *, *::before, *::after {
             margin: 0;
             padding: 0;
@@ -46,6 +46,7 @@
             color: var(--text-color);
             overflow-x: hidden;
             font-size: 16px;
+            background-color: var(--light-bg-color);
         }
 
         .container {
@@ -54,22 +55,26 @@
             padding: 0 20px;
         }
 
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+        }
+
         /* Header & Navigation */
         header {
-            position: fixed;
+            position: fixed; /* Changed from absolute to fixed */
             top: 0;
+            left: 0;
             width: 100%;
-            height: 120px;
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(10px);
+            height: 80px; /* Base height for mobile */
+            background: transparent;
             z-index: 1000;
-            padding: 1rem 0;
+            padding: 0.8rem 0;
             transition: all 0.3s ease;
         }
 
         header.scrolled {
-            background: rgba(255,255,255,0.95);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            background: rgba(248, 246, 242, 0.95);
+            box-shadow: 0 2px 20px rgba(167, 128, 90, 0.1);
         }
 
         nav {
@@ -79,22 +84,38 @@
         }
 
         .logo-image {
-            height: 105px;
+            height: 60px; /* Base height for mobile */
             width: auto;
             transition: height 0.3s ease;
         }
 
+        .menu-bar {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 0.7rem 2rem;
+            border-radius: 50px;
+            box-shadow: 0 4px 20px rgba(167, 128, 90, 0.15);
+            border: 1px solid var(--secondary-color);
+            display: none; /* Hide on mobile by default */
+            position: absolute;
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            text-align: center;
+        }
+
         .nav-links {
             display: flex;
+            flex-direction: column;
             list-style: none;
-            gap: 2rem;
+            gap: 1.5rem;
             margin: 0;
-            padding: 0;
+            padding: 1rem 0;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: #99686E;
+            color: var(--text-color);
             font-weight: 500;
             transition: color 0.3s ease;
             position: relative;
@@ -111,7 +132,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: linear-gradient(45deg, var(--main-color), var(--secondary-color));
+            background: linear-gradient(45deg, var(--main-color), var(--accent-color));
             transition: width 0.3s ease;
         }
 
@@ -120,24 +141,41 @@
         }
 
         .mobile-menu-btn {
-            display: none;
+            display: block;
             background: none;
             border: none;
             font-size: 1.5rem;
             cursor: pointer;
             color: var(--main-color);
+            z-index: 1001;
+        }
+
+        .menu-bar.active {
+            display: block;
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-color) 50%, var(--main-color) 100%);
-            color: var(--light-text-color);
-            min-height: 100vh;
+            background: url("image/bg.png") no-repeat center center;
+            background-size: cover;
+            min-height: 90vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding-top: 120px;
+            padding-top: 80px;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(167, 128, 90, 0.1);
+            pointer-events: none;
         }
 
         .hero-content {
@@ -145,11 +183,13 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
+            position: relative;
+            z-index: 1;
         }
 
         .heading-logo {
-            width: 90vw; 
-            max-width: 600px;
+            width: 95vw;
+            max-width: 400px;
             height: auto;
             margin-bottom: 1rem;
         }
@@ -158,55 +198,47 @@
             font-size: clamp(2rem, 5vw, 3.5rem);
             font-weight: normal;
             margin: 0 0 1rem 0;
-            color: var(--light-text-color);
+            color: var(--main-color);
         }
 
         .hero p {
             font-size: clamp(1rem, 2vw, 1.3rem);
             margin-bottom: 2rem;
             max-width: 600px;
-            color: var(--light-text-color);
+            color: var(--text-color);
         }
 
         .cta-button {
             display: inline-block;
-            background: rgba(255, 255, 255, 0.2);
+            background: var(--main-color);
             color: var(--light-text-color);
             padding: 15px 30px;
             text-decoration: none;
             border-radius: 50px;
             font-weight: bold;
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            border: 2px solid var(--main-color);
             transition: all 0.3s ease;
         }
 
         .cta-button:hover {
-            background: var(--card-bg-color);
+            background: transparent;
             color: var(--main-color);
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 30px rgba(167, 128, 90, 0.3);
         }
-        
+
         /* Sections */
         .services, .wellness-packages, .why-choose, .detailed-services {
-            padding: 100px 0;
+            padding: 60px 0; /* Reduced padding for mobile */
         }
 
         .services, .why-choose, .detailed-services {
-            background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-color) 50%, var(--main-color) 100%);
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--accent-color) 50%, var(--main-color) 100%);
         }
 
         .wellness-packages {
-            background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-color) 50%, var(--main-color) 100%);
+            background: var(--light-bg-color);
         }
-/* Zoom effect for Wellness Packages section images */
-.wellness-packages .card-image img {
-    transition: transform 0.5s ease;
-}
-
-.wellness-packages .card-image:hover img {
-    transform: scale(1.03);
-}
 
         .section-title {
             text-align: center;
@@ -224,14 +256,14 @@
             transform: translateX(-50%);
             width: 80px;
             height: 3px;
-            background: linear-gradient(45deg, var(--main-color), var(--secondary-color));
+            background: linear-gradient(45deg, var(--main-color), var(--accent-color));
             border-radius: 2px;
         }
 
         /* Services Grid */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: 1fr; /* Single column for mobile */
             gap: 2rem;
             margin-top: 4rem;
         }
@@ -239,27 +271,24 @@
         .service-card {
             background: var(--card-bg-color);
             border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
- transition: all 0.4s ease;
-
+            box-shadow: 0 5px 20px rgba(167, 128, 90, 0.1);
+            transition: all 0.4s ease;
             display: flex;
             flex-direction: column;
             overflow: hidden;
+            border: 1px solid var(--secondary-color);
         }
 
         .service-card:hover {
-            transform: scale(1.05); /* zoom entire card */
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            transform: scale(1.03); /* Slight scale on hover for a subtle effect */
+            box-shadow: 0 10px 30px rgba(167, 128, 90, 0.2);
         }
-.service-card:hover .service-card-image {
-    transform: scale(1.05); /* Same zoom as detailed-services */
-}
+        
         .service-card-image {
             width: 100%;
-            height: 300px;
+            height: 200px;
             object-fit: cover;
- transition: transform 0.5s ease;
-
+            transition: transform 0.5s ease;
         }
 
         .service-card-content {
@@ -289,53 +318,43 @@
 
         .card {
             display: flex;
+            flex-direction: column; /* Stacking for mobile */
             align-items: stretch;
             background: #fff;
             border-radius: var(--card-radius);
             overflow: hidden;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+            box-shadow: 0 6px 18px rgba(167, 128, 90, 0.12);
             transition: transform .18s ease, box-shadow .18s ease;
+            border: 1px solid var(--secondary-color);
         }
 
         .card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.09);
+            box-shadow: 0 12px 30px rgba(167, 128, 90, 0.15);
         }
 
         /* IMAGE BLOCK */
         .card-image {
-            flex: 0 0 48%;
+            flex: 1; /* Make image block flexible on mobile */
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: calc(var(--img-margin) * 1);
-            background: var(--card-image-bg, #E8D5C6);
-
+            padding: 30px;
         }
 
         .card-image img {
             display: block;
             width: 100%;
-            max-width: 650px;
-            height: clamp(220px, 30vw, 360px);
+            height: 220px;
             object-fit: cover;
             margin: 0;
-transition: transform 0.5s ease;
-        }
-
-        .card:nth-child(odd) .card-image img {
-            border-top-left-radius: var(--img-radius);
-            border-bottom-right-radius: var(--img-radius);
-        }
-
-        .card:nth-child(even) .card-image img {
-            border-top-left-radius: var(--img-radius);
-            border-bottom-right-radius: var(--img-radius);
+            border-top-left-radius: 60px;
+            border-bottom-right-radius: 60px;
         }
 
         /* CONTENT BLOCK */
         .card-content {
-            flex: 1 1 52%;
+            flex: 1;
             padding: clamp(16px, 2.6vw, 28px);
             display: flex;
             flex-direction: column;
@@ -345,14 +364,14 @@ transition: transform 0.5s ease;
 
         .card h2 {
             margin: 0;
-            color: #222;
+            color: var(--main-color);
             font-size: clamp(20px, 2.6vw, 26px);
             line-height: 1.15;
         }
 
         .card p {
             margin: 0;
-            color: #444;
+            color: var(--text-color);
             line-height: 1.5;
         }
 
@@ -361,7 +380,7 @@ transition: transform 0.5s ease;
             list-style: none;
             padding: 0;
             margin: 8px 0 0 1rem;
-            color: #333;
+            color: var(--text-color);
         }
 
         .package-features li {
@@ -374,63 +393,22 @@ transition: transform 0.5s ease;
             content: '•';
             position: absolute;
             left: 0;
-            color:linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-color) 50%, var(--main-color) 100%);
-
+            color: var(--main-color);
             font-weight: bold;
             font-size: 1.2rem;
         }
 
-
-        /* Desktop alternate layout */
-        @media (min-width: 769px) {
-            .card:nth-child(even) {
-                flex-direction: row-reverse;
-            }
-
-        }
-
-        @media (max-width: 1024px) {
-            .card-image img { 
-                max-width: 520px; 
-            }
-
-        }
-
-        @media (max-width: 768px) {
-            .card {
-                flex-direction: column !important;
-            }
-
-            .card-image {
-                padding: 30px;
-            }
-
-            .card-image img {
-                width: 100%;
-                height: 220px;
-                object-fit: cover;
-                border-top-left-radius: 60px;
-                border-bottom-right-radius: 60px;
-            }
-
-            .card:nth-child(odd) .card-image img,
-            .card:nth-child(even) .card-image img {
-                border-top-left-radius: 60px;
-                border-bottom-right-radius: 60px;
-            }
-        }
-
         /* Research Section */
         .research {
-            padding: 100px 0;
-            background: linear-gradient(135deg, #99686E 0%, #DCAE96 100%);
+            padding: 60px 0;
+            background: linear-gradient(135deg, var(--main-color) 0%, var(--accent-color) 100%);
             color: white;
             text-align: center;
         }
 
         .research-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: 1fr; /* Single column for mobile */
             gap: 2rem;
             margin-top: 2rem;
         }
@@ -456,7 +434,6 @@ transition: transform 0.5s ease;
             opacity: 0.9;
         }
 
-        /* Outcome Cards */
         .outcome-card {
             background: rgba(255, 255, 255, 0.1);
             border-radius: 20px;
@@ -496,6 +473,7 @@ transition: transform 0.5s ease;
             margin-right: 0.5rem;
             font-size: 1rem;
             flex-shrink: 0;
+            color: var(--secondary-color);
         }
 
         .outcome-list li strong {
@@ -506,7 +484,7 @@ transition: transform 0.5s ease;
         /* Detailed Services */
         .detailed-services-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: 1fr; /* Single column for mobile */
             gap: 30px;
             margin-bottom: 40px;
         }
@@ -514,17 +492,18 @@ transition: transform 0.5s ease;
         .detailed-service-card {
             background: var(--card-bg-color);
             border-radius: 20px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 8px 30px rgba(167, 128, 90, 0.1);
             transition: all 0.4s ease;
             display: flex;
             flex-direction: column;
             overflow: hidden;
             height: 100%;
+            border: 1px solid var(--secondary-color);
         }
 
         .detailed-service-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 20px 40px rgba(167, 128, 90, 0.2);
         }
 
         .detailed-service-image {
@@ -554,15 +533,14 @@ transition: transform 0.5s ease;
         }
 
         .detailed-service-description {
-            color: #666;
+            color: var(--text-color);
             margin-bottom: 30px;
             line-height: 1.8;
             flex-grow: 1;
         }
-
-        /* Mobile Carousel */
+        
+        /* Mobile Carousel (This is the new desktop version, which will be the only version) */
         .mobile-carousel {
-            display: none;
             position: relative;
             overflow: hidden;
             border-radius: 20px;
@@ -590,13 +568,13 @@ transition: transform 0.5s ease;
             width: 12px;
             height: 12px;
             border-radius: 50%;
-            background: #ddd;
+            background: var(--secondary-color);
             cursor: pointer;
             transition: background 0.3s ease;
         }
 
         .indicator.active {
-            background: var(--coral-color);
+            background: var(--main-color);
         }
 
         /* Footer */
@@ -607,11 +585,10 @@ transition: transform 0.5s ease;
 
         .new-footer-main {
             display: flex;
-            justify-content: space-around;
-            align-items: flex-start;
-            text-align: left;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
             margin-top: 2rem;
-            flex-wrap: wrap;
             gap: 2rem;
         }
 
@@ -622,7 +599,7 @@ transition: transform 0.5s ease;
         .new-footer-about p {
             margin-top: 1rem;
             line-height: 1.8;
-            color: #555;
+            color: var(--text-color);
         }
 
         .ps4wellbeing-logo img {
@@ -632,12 +609,12 @@ transition: transform 0.5s ease;
 
         .social-icons {
             margin-top: 1rem;
-            text-align: left;
+            text-align: center;
         }
 
         .social-icons a {
             display: inline-block;
-            margin-right: 10px;
+            margin: 0 10px;
             color: var(--main-color);
             font-size: 1.5rem;
             transition: transform 0.3s ease;
@@ -645,11 +622,13 @@ transition: transform 0.5s ease;
 
         .social-icons a:hover {
             transform: translateY(-3px);
+            color: var(--accent-color);
         }
 
         .new-footer-links {
             flex-grow: 1;
             display: flex;
+            flex-direction: column;
             justify-content: space-around;
             flex-wrap: wrap;
             gap: 2rem;
@@ -669,7 +648,7 @@ transition: transform 0.5s ease;
 
         .new-footer-links a {
             text-decoration: none;
-            color: #555;
+            color: var(--text-color);
             transition: color 0.3s ease;
         }
 
@@ -691,20 +670,25 @@ transition: transform 0.5s ease;
 
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: 1fr;
             gap: 2rem;
             margin-bottom: 2rem;
         }
 
         .footer-section h4 {
             margin-bottom: 1rem;
-            color: var(--main-color);
+            color: var(--text-color);
+        }
+
+        .footer-section p {
+            color: var(--text-color);
         }
 
         .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            border-top: 1px solid rgba(74, 60, 42, 0.3);
             padding-top: 1rem;
             margin-top: 2rem;
+            color: var(--text-color);
         }
 
         /* WhatsApp Button */
@@ -714,14 +698,14 @@ transition: transform 0.5s ease;
             right: 20px;
             width: 60px;
             height: 60px;
-            background-color: #25d366;
+            background-color: var(--main-color);
             color: white;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 50%;
             font-size: 30px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 8px rgba(167, 128, 90, 0.3);
             text-decoration: none;
             z-index: 999;
             transition: transform 0.3s;
@@ -729,6 +713,7 @@ transition: transform 0.5s ease;
 
         .whatsapp-btn:hover {
             transform: scale(1.1);
+            background-color: var(--accent-color);
         }
 
         /* Animation */
@@ -743,133 +728,152 @@ transition: transform 0.5s ease;
             transform: translateY(0);
         }
 
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
+        /* Desktop & Tablet Optimizations */
+        @media (min-width: 769px) {
             header {
-                padding: 0.8rem 0;
-                height: 80px;
+                height: 120px;
             }
 
             .logo-image {
-                height: 60px;
+                height: 105px;
+            }
+
+            .menu-bar {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                top: 20px;
+                left: unset;
+                transform: none;
+                width: fit-content;
             }
 
             .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: var(--card-bg-color);
-                flex-direction: column;
-                padding: 1rem;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-                z-index: 999;
+                flex-direction: row;
+                gap: 2rem;
+                padding: 0;
             }
-
-            .nav-links.active {
-                display: flex;
-            }
-
+            
             .mobile-menu-btn {
-                display: block;
-            }
-
-            .hero {
-                padding-top: 80px;
-                min-height: 90vh;
-            }
-
-            .hero-content {
-                padding: 2rem 0;
-            }
-
-            .heading-logo {
-                width: 95vw;
-                max-width: 400px;
-            }
-
-            .detailed-services-grid {
                 display: none;
             }
 
-            .mobile-carousel {
-                display: block;
-            }
-
-            .service-card-image {
-                height: 200px;
-            }
-
-            .new-footer-main {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-
-            .new-footer-about, .new-footer-links {
-                width: 100%;
-                text-align: center;
-            }
-
-            .social-icons {
-                text-align: center;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-
-            .outcome-list li {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .outcome-list li i {
-                margin-bottom: 0.5rem;
-                margin-right: 0;
-            }
-        }
-
-        /* Tablet Responsive */
-        @media (min-width: 769px) and (max-width: 1024px) {
-            .detailed-services-grid {
-                grid-template-columns: repeat(4, 1fr);
+            .services, .wellness-packages, .why-choose, .detailed-services {
+                padding: 100px 0;
             }
 
             .services-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+
+            .card {
+                flex-direction: row;
+            }
+
+            .card:nth-child(even) {
+                flex-direction: row-reverse;
+            }
+
+            .card-image {
+                flex: 0 0 48%;
+                padding: var(--img-margin);
+            }
+
+            .card-image img {
+                height: clamp(220px, 30vw, 360px);
+                border-top-left-radius: var(--img-radius);
+                border-bottom-right-radius: var(--img-radius);
+            }
+
+            .card:nth-child(odd) .card-image img {
+                border-top-left-radius: var(--img-radius);
+                border-bottom-right-radius: var(--img-radius);
+            }
+            
+            .card:nth-child(even) .card-image img {
+                border-top-left-radius: var(--img-radius);
+                border-bottom-right-radius: var(--img-radius);
+            }
+
+            .research-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+
+            .detailed-services-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .mobile-carousel {
+                display: none;
+            }
+            
+            .new-footer-main {
+                flex-direction: row;
+                justify-content: space-around;
+                align-items: flex-start;
+                text-align: left;
+            }
+
+            .social-icons {
+                text-align: left;
+            }
+
+            .new-footer-links {
+                flex-direction: row;
+                justify-content: space-around;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+            
+            .outcome-list li {
+                flex-direction: row;
+            }
+
+            .outcome-list li i {
+                margin-bottom: 0;
+                margin-right: 0.5rem;
+            }
+        }
+
+        /* Re-introduce the carousel for mobile and keep the grid for desktop */
+        @media (max-width: 1024px) {
+            .detailed-services-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
 
-        /* Large Screen Optimization */
-        @media (min-width: 1400px) {
-            .container {
-                max-width: 1400px;
-            }
-
+        @media (max-width: 768px) {
             .detailed-services-grid {
-                grid-template-columns: repeat(4, 1fr);
+                display: none; /* Hide grid on mobile */
+            }
+            .mobile-carousel {
+                display: block; /* Show carousel on mobile */
             }
         }
+
     </style>
 </head>
 <body>
     <header>
         <nav class="container">
             <a href="#home" class="logo" aria-label="PS4Wellbeing Home">
-                <img src="image/loggooo.png" class="logo-image" alt="PS4Wellbeing Logo">
+                <img src="image/lg1.png" class="logo-image" alt="PS4Wellbeing Logo" loading="lazy">
             </a>
-            <ul class="nav-links" id="mobile-menu-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#packages">Programs</a></li>
-                <li><a href="#research">Research</a></li>
-                <li><a href="#detailed-services">Our Expertise</a></li>
-                <li><a href="blog.html" id="blog-link">Blog</a></li>
-                <li><a href="https://wa.me/+974 66648078" target="_blank">Free Consult</a></li>
-                <li><a href="#contact-details">Contact</a></li>
-            </ul>
+            <div class="menu-bar">
+                <ul class="nav-links" id="mobile-menu-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#packages">Programs</a></li>
+                    <li><a href="#research">Research</a></li>
+                    <li><a href="#detailed-services">Our Expertise</a></li>
+                    <li><a href="blog.html" id="blog-link">Blog</a></li>
+                    <li><a href="https://wa.me/+97466648078" target="_blank">Free Consult</a></li>
+                    <li><a href="#contact-details">Contact</a></li>
+                </ul>
+            </div>
             <button class="mobile-menu-btn" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobile-menu-links">☰</button>
         </nav>
     </header>
@@ -878,9 +882,9 @@ transition: transform 0.5s ease;
         <section id="home" class="hero">
             <div class="container">
                 <div class="hero-content">
-                    <img src="image/ps1.png" alt="Positive Synergy 4 Wellbeing" class="heading-logo" />
-                    <h1  style="font-family:garamond,serif;" class="h1-size-text" >Positive Synergy for Wellbeing</h1>
-                    <p  style="font-family:garamond,serif;" data-animated>Transformative programs for individuals and organizations. Helping people thrive emotionally, mentally, socially, and professionally through evidence-based wellbeing solutions.</p>
+                    <img src="image/lgh1.png" alt="Positive Synergy 4 Wellbeing" class="heading-logo" loading="lazy" />
+                    <h1 style="font-family:garamond,serif;" class="h1-size-text">Positive Synergy for Wellbeing</h1>
+                    <p style="font-family:garamond,serif;" data-animated>Transformative programs for individuals and organizations. Helping people thrive emotionally, mentally, socially, and professionally through evidence-based wellbeing solutions.</p>
                     <a href="#services" class="cta-button" data-animated>Explore Our Services</a>
                 </div>
             </div>
@@ -894,9 +898,7 @@ transition: transform 0.5s ease;
                         <img src="image/1.jpeg" alt="Corporate Training" class="service-card-image" loading="lazy">
                         <div class="service-card-content">
                             <h3>Corporate Training</h3>
-                            <p>We partner with organizations to deliver immersive wellbeing workshops that boost employee 
-engagement, resilience, and emotional intelligence. Our training is tailored to your team’s needs 
-and includes :</p>
+                            <p>We partner with organizations to deliver immersive wellbeing workshops that boost employee engagement, resilience, and emotional intelligence. Our training is tailored to your team's needs and includes :</p>
                             <ul class="package-features">
                                 <li>On-site or virtual workshops</li>
                                 <li>Reflective exercises and workbooks</li>
@@ -905,7 +907,6 @@ and includes :</p>
                             </ul>
                         </div>
                     </div>
-
                     <div class="service-card" data-animated>
                         <img src="image/14.jpeg" alt="1:1 Coaching" class="service-card-image" loading="lazy">
                         <div class="service-card-content">
@@ -923,11 +924,10 @@ and includes :</p>
                         <img src="image/2.jpg" alt="Women Wellness Circle" class="service-card-image" loading="lazy">
                         <div class="service-card-content">
                             <h3>Women Wellness Circle</h3>
-                            <p>We offer exclusive group training sessions for women, focused on emotional balace and clarity :</p>
+                            <p>We offer exclusive group wellness training sessions for women, focused on emotional balance and clarity :</p>
                             <ul class="package-features">
                                 <li>These sessions provide a supportive, women only environment</li>
                                 <li>Women can connect, grow and thrive - together</li>
-                       
                             </ul>
                         </div>
                     </div>
@@ -940,10 +940,10 @@ and includes :</p>
                 <h2 class="section-title" style="color: var(--main-color);">Our Wellness Programs</h2>
                 <div class="card-container">
                     <div class="card" data-animated>
-                        <div class="card-image" style="--card-image-bg:#DCAE96;">
-                            <img src="image/17.jpeg" alt="Wellness Foundations" loading="lazy">
+                        <div class="card-image" style="--card-image-bg: var(--secondary-color);">
+                            <img src="image/17.jpg" alt="Wellness Foundations" loading="lazy">
                         </div>
-                        <div class="card-content" style="background-color: #DCAE96;">
+                        <div class="card-content" style="background-color: var(--secondary-color);">
                             <h2>Wellness Foundations</h2>
                             <p>Based on the PERMA model by Dr. Martin Seligman, this module helps individuals build a flourishing life.</p>
                             <ul class="package-features">
@@ -956,15 +956,14 @@ and includes :</p>
                             </ul>
                         </div>
                     </div>
-
                     <div class="card" data-animated>
-                        <div class="card-image" style="--card-image-bg:#99686E;">
-                            <img src="image/12.jpeg" alt="Positive Psychology" loading="lazy">
+                        <div class="card-image" style="--card-image-bg: var(--main-color);">
+                            <img src="image/12.jpg" alt="Positive Psychology" loading="lazy">
                         </div>
-                        <div class="card-content" style="background-color: #99686E;">
-                            <h2>Positive Psychology</h2>
-                            <p>Grounded in the science of human flourishing and evidence-based practices for lasting wellbeing.</p>
-                            <ul class="package-features">
+                        <div class="card-content" style="background-color: var(--main-color); color: white;">
+                            <h2 style="color: white;">Positive Psychology</h2>
+                            <p style="color: white;">Grounded in the science of human flourishing and evidence-based practices for lasting wellbeing.</p>
+                            <ul class="package-features" style="color: white;">
                                 <li>Introduction to Positive Psychology</li>
                                 <li>Strengths Discovery using VIA Character Strengths</li>
                                 <li>Behavioral Change through habit science</li>
@@ -974,15 +973,14 @@ and includes :</p>
                             </ul>
                         </div>
                     </div>
-
                     <div class="card" data-animated>
-                        <div class="card-image" style="--card-image-bg:#B2AC88;">
-                            <img src="image/18.jpeg" alt="Emotional Intelligence" loading="lazy">
+                        <div class="card-image" style="--card-image-bg: var(--accent-color);">
+                            <img src="image/18.png" alt="Emotional Intelligence" loading="lazy">
                         </div>
-                        <div class="card-content" style="background-color: #B2AC88;">
-                            <h2>Emotional Intelligence</h2>
-                            <p>Inspired by Daniel Goleman's framework for understanding and managing emotions effectively.</p>
-                            <ul class="package-features">
+                        <div class="card-content" style="background-color: var(--accent-color); color: white;">
+                            <h2 style="color: white;">Emotional Intelligence</h2>
+                            <p style="color: white;">Inspired by Daniel Goleman's framework for understanding and managing emotions effectively.</p>
+                            <ul class="package-features" style="color: white;">
                                 <li>The Sailboat Metaphor for emotional navigation</li>
                                 <li>Understanding Emotions & EI</li>
                                 <li>Mastering Attention for emotional awareness</li>
@@ -992,12 +990,11 @@ and includes :</p>
                             </ul>
                         </div>
                     </div>
-
                     <div class="card" data-animated>
-                        <div class="card-image" style="--card-image-bg:#DCAE96;">
+                        <div class="card-image" style="--card-image-bg: var(--secondary-color);">
                             <img src="image/19.jpeg" alt="Mindfulness Mastery" loading="lazy">
                         </div>
-                        <div class="card-content" style="background-color: #DCAE96;">
+                        <div class="card-content" style="background-color: var(--secondary-color);">
                             <h2>Mindfulness Mastery</h2>
                             <p>Backed by research from Oxford and Harvard, integrating mindfulness into daily life and work.</p>
                             <ul class="package-features">
@@ -1010,15 +1007,14 @@ and includes :</p>
                             </ul>
                         </div>
                     </div>
-
                     <div class="card" data-animated>
-                        <div class="card-image" style="--card-image-bg:#99686E;">
+                        <div class="card-image" style="--card-image-bg: var(--main-color);">
                             <img src="image/16.jpeg" alt="Job Crafting" loading="lazy">
                         </div>
-                        <div class="card-content" style="background-color: #99686E;">
-                            <h2>Job Crafting</h2>
-                            <p>Based on research by Wrzesniewski & Dutton to redesign your work for greater satisfaction.</p>
-                            <ul class="package-features">
+                        <div class="card-content" style="background-color: var(--main-color); color: white;">
+                            <h2 style="color: white;">Job Crafting</h2>
+                            <p style="color: white;">Based on research by Wrzesniewski & Dutton to redesign your work for greater satisfaction.</p>
+                            <ul class="package-features" style="color: white;">
                                 <li>Clarifying Values, Strengths & Interests</li>
                                 <li>Task Crafting: redesigning work tasks</li>
                                 <li>Relational Crafting: improving relationships</li>
@@ -1027,15 +1023,14 @@ and includes :</p>
                             </ul>
                         </div>
                     </div>
-
                     <div class="card" data-animated>
-                        <div class="card-image" style="--card-image-bg:#B2AC88;">
+                        <div class="card-image" style="--card-image-bg: var(--accent-color);">
                             <img src="image/15.jpeg" alt="Resilience Building" loading="lazy">
                         </div>
-                        <div class="card-content" style="background-color: #B2AC88;">
-                            <h2>Resilience Building</h2>
-                            <p>Informed by the Job Demands–Resources model for navigating adversity and stress.</p>
-                            <ul class="package-features">
+                        <div class="card-content" style="background-color: var(--accent-color); color: white;">
+                            <h2 style="color: white;">Resilience Building</h2>
+                            <p style="color: white;">Informed by the Job Demands–Resources model for navigating adversity and stress.</p>
+                            <ul class="package-features" style="color: white;">
                                 <li>Sailboat Metaphor for navigating adversity</li>
                                 <li>Attention Mastery under stress</li>
                                 <li>Thought Power and cognitive flexibility</li>
@@ -1051,14 +1046,12 @@ and includes :</p>
         <section id="research" class="research">
             <div class="container">
                 <h2 class="section-title" style="color: white;">Why Wellbeing Matters—The Research</h2>
-
                 <div class="outcome-card" data-animated>
                     <div class="outcome-icon">
                         <i class="fas fa-building" style="font-size: 3rem; color: rgba(255,255,255,0.9); margin-bottom: 1rem;"></i>
                     </div>
                     <h3 style="color: white; margin-bottom: 1.5rem; font-size: 1.5rem;">Organizational Outcomes</h3>
                 </div>
-
                 <div class="research-grid">
                     <div class="research-card" data-animated>
                         <div class="stat-number">21%</div>
@@ -1077,7 +1070,6 @@ and includes :</p>
                         <div class="stat-label">Higher Profitability</div>
                     </div>
                 </div>
-
                 <div style="text-align: center; margin-top: 3rem;">
                     <p style="font-size: 1.1rem; opacity: 0.9;">Meta-analysis of 339 studies involving 1.88 million employees across 82,248 business units</p>
                     <p style="font-size: 0.9rem; opacity: 0.7; margin-top: 0.5rem;">
@@ -1098,7 +1090,6 @@ and includes :</p>
                         </a>
                     </p>
                 </div>
-
                 <div class="outcomes-section" style="margin-top: 4rem;">
                     <div class="outcome-card" data-animated>
                         <div class="outcome-icon">
@@ -1106,7 +1097,7 @@ and includes :</p>
                         </div>
                         <h3 style="color: white; margin-bottom: 1.5rem; font-size: 1.5rem;">Individual Outcomes</h3>
                         <div class="individual-outcomes">
-                            <ul class="outcome-list"> 
+                            <ul class="outcome-list">
                                 <li><i class="fas fa-users"></i><strong>Stronger relationships and social support</strong></li>
                                 <li><i class="fas fa-heart"></i><strong>Better physical health and immune function</strong></li>
                                 <li><i class="fas fa-brain"></i><strong>Enhanced creativity, focus and problem-solving</strong></li>
@@ -1114,7 +1105,6 @@ and includes :</p>
                             </ul>
                         </div>
                     </div>
-
                     <div class="research-impact" data-animated style="margin-top: 3rem; padding: 2rem; background: rgba(255,255,255,0.1); border-radius: 15px; backdrop-filter: blur(10px);">
                         <p style="font-size: 1.1rem; margin-bottom: 1rem; font-weight: 600;">Studies show that wellbeing interventions like mindfulness, resilience training, and emotional intelligence coaching significantly improve mental health and long-term personal growth.</p>
                     </div>
@@ -1125,9 +1115,8 @@ and includes :</p>
         <section id="detailed-services" class="detailed-services">
             <div class="container">
                 <h2 class="section-title">Why Choose PS4Wellbeing?</h2>
-                
                 <div class="detailed-services-grid">
-                    <div class="detailed-service-card">
+                    <div class="detailed-service-card" data-animated>
                         <div class="detailed-service-image">
                             <img src="image/evidence.jpeg" alt="A person reviewing research papers, symbolizing evidence-based programs" loading="lazy">
                         </div>
@@ -1138,8 +1127,7 @@ and includes :</p>
                             </p>
                         </div>
                     </div>
-                    
-                    <div class="detailed-service-card">
+                    <div class="detailed-service-card" data-animated>
                         <div class="detailed-service-image">
                             <img src="image/cus.jpg" alt="Customizable solutions with puzzle pieces fitting together" loading="lazy">
                         </div>
@@ -1150,8 +1138,7 @@ and includes :</p>
                             </p>
                         </div>
                     </div>
-                    
-                    <div class="detailed-service-card">
+                    <div class="detailed-service-card" data-animated>
                         <div class="detailed-service-image">
                             <img src="image/e.jpeg" alt="A dynamic and engaging workshop environment" loading="lazy">
                         </div>
@@ -1162,8 +1149,7 @@ and includes :</p>
                             </p>
                         </div>
                     </div>
-                    
-                    <div class="detailed-service-card">
+                    <div class="detailed-service-card" data-animated>
                         <div class="detailed-service-image">
                             <img src="image/l.jpg" alt="A plant growing from a seed, representing lasting impact and growth" loading="lazy">
                         </div>
@@ -1181,7 +1167,7 @@ and includes :</p>
                         <div class="carousel-slide">
                             <div class="detailed-service-card">
                                 <div class="detailed-service-image">
-                                    <img src="image/evidence.jpeg" alt="Evidence-based programs" loading="lazy">
+                                    <img src="image/evidence.jpeg" alt="A person reviewing research papers, symbolizing evidence-based programs" loading="lazy">
                                 </div>
                                 <div class="detailed-service-content">
                                     <h3 class="detailed-service-title">Evidence-Based</h3>
@@ -1191,11 +1177,10 @@ and includes :</p>
                                 </div>
                             </div>
                         </div>
-
                         <div class="carousel-slide">
                             <div class="detailed-service-card">
                                 <div class="detailed-service-image">
-                                    <img src="image/cus.jpg" alt="Customizable solutions" loading="lazy">
+                                    <img src="image/cus.jpg" alt="Customizable solutions with puzzle pieces fitting together" loading="lazy">
                                 </div>
                                 <div class="detailed-service-content">
                                     <h3 class="detailed-service-title">Customizable</h3>
@@ -1205,11 +1190,10 @@ and includes :</p>
                                 </div>
                             </div>
                         </div>
-
                         <div class="carousel-slide">
                             <div class="detailed-service-card">
                                 <div class="detailed-service-image">
-                                    <img src="image/e.jpeg" alt="Engaging workshop environment" loading="lazy">
+                                    <img src="image/e.jpeg" alt="A dynamic and engaging workshop environment" loading="lazy">
                                 </div>
                                 <div class="detailed-service-content">
                                     <h3 class="detailed-service-title">Engaging</h3>
@@ -1219,11 +1203,10 @@ and includes :</p>
                                 </div>
                             </div>
                         </div>
-
                         <div class="carousel-slide">
                             <div class="detailed-service-card">
                                 <div class="detailed-service-image">
-                                    <img src="image/l.jpg" alt="Lasting impact and growth" loading="lazy">
+                                    <img src="image/l.jpg" alt="A plant growing from a seed, representing lasting impact and growth" loading="lazy">
                                 </div>
                                 <div class="detailed-service-content">
                                     <h3 class="detailed-service-title">Lasting Impact</h3>
@@ -1234,7 +1217,6 @@ and includes :</p>
                             </div>
                         </div>
                     </div>
-
                     <div class="carousel-indicators" id="indicators">
                         <div class="indicator active" onclick="goToSlide(0)"></div>
                         <div class="indicator" onclick="goToSlide(1)"></div>
@@ -1250,7 +1232,7 @@ and includes :</p>
                 <div class="new-footer-main">
                     <div class="new-footer-about">
                         <a href="#home" class="ps4wellbeing-logo">
-                            <img src="image/logooo.png" alt="PS4Wellbeing Logo" loading="lazy">
+                            <img src="image/lg1.png" alt="PS4Wellbeing Logo" loading="lazy">
                         </a>
                         <p>
                             Our approach is rooted in the principles of Neuro-Linguistic Programming
@@ -1311,7 +1293,7 @@ and includes :</p>
                     <p>
                         1:1 Coaching<br>
                         Free Consult<br>
-                        Wellness Programs<br>
+                        Women Wellness circle<br>
                         Corporate Training<br>
                     </p>
                 </div>
@@ -1323,26 +1305,25 @@ and includes :</p>
     </footer>
 
     <a href="https://wa.me/+917994144334" class="whatsapp-btn" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
-        <img src="image/w.png" alt="WhatsApp" style="width: 30px; height: 30px;">
+        <i class="fab fa-whatsapp"></i>
     </a>
 
     <script>
         // Mobile menu toggle
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const navLinks = document.querySelector('.nav-links');
+        const menuBar = document.querySelector('.menu-bar');
 
-        if (mobileMenuBtn && navLinks) {
+        if (mobileMenuBtn && menuBar) {
             mobileMenuBtn.addEventListener('click', () => {
                 const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true' || false;
                 mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
-                navLinks.classList.toggle('active');
+                menuBar.classList.toggle('active');
             });
-
-            // Close menu when a link is clicked
+            
             document.querySelectorAll('.nav-links a').forEach(link => {
                 link.addEventListener('click', () => {
-                    if (navLinks.classList.contains('active')) {
-                        navLinks.classList.remove('active');
+                    if (menuBar.classList.contains('active')) {
+                        menuBar.classList.remove('active');
                         mobileMenuBtn.setAttribute('aria-expanded', 'false');
                     }
                 });
@@ -1394,7 +1375,7 @@ and includes :</p>
                 const target = parseInt(counter.textContent);
                 const increment = target / 100;
                 let current = 0;
-                
+
                 const updateCounter = () => {
                     if (current < target) {
                         current += increment;
@@ -1404,7 +1385,6 @@ and includes :</p>
                         counter.textContent = target + '%';
                     }
                 };
-                
                 updateCounter();
             });
         }
@@ -1437,7 +1417,7 @@ and includes :</p>
                     if (isAutoPlaying) {
                         nextSlide();
                     }
-                }, 3000); 
+                }, 3000);
             }
         }
 
@@ -1458,7 +1438,7 @@ and includes :</p>
             setTimeout(() => {
                 isAutoPlaying = true;
                 startAutoPlay();
-            }, 5000); 
+            }, 5000);
         }
 
         function updateCarousel() {
