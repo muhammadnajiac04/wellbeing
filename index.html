@@ -9,33 +9,14 @@
     <meta name="author" content="PS4Wellbeing">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.ps4wellbeing.com/">
-    
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "PS4Wellbeing",
-      "url": "https://www.ps4wellbeing.com/",
-      "logo": "https://www.ps4wellbeing.com/image/lg2.png",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+974-6664-8078",
-        "contactType": "Customer Service"
-      },
-      "sameAs": [
-        "https://wa.me/97466648078"
-      ]
-    }
-    </script>
 
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" as="style">
-    <link rel="preload" href="image/bg.png" as="image">
-
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Garamond:wght@400&display=swap" rel="stylesheet">
-
+    
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+        /* CSS Variables */
         :root {
             --main-color: #a7805a;
             --secondary-color: #dcc9b0;
@@ -52,6 +33,7 @@
             --gap: 20px;
         }
 
+        /* Base Styles & Typography */
         *, *::before, *::after {
             margin: 0;
             padding: 0;
@@ -76,31 +58,37 @@
             font-family: 'Poppins', sans-serif;
         }
 
-        .menu-bar {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 0.7rem 2rem;
-            border-radius: 50px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0 auto;
-            position: relative;
-            top: 20px;
-            width: fit-content;
-        }
 
-        header {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 120px;
-            background: transparent;
-            z-index: 1000;
-            padding: 1rem 0;
-            transition: all 0.3s ease;
-        }
+.menu-bar {
+    background: rgba(255, 255, 255, 0.9); /* light background */
+    padding: 0.7rem 2rem;
+    border-radius: 50px; /* rounded pill */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    position: relative;
+    top: 20px; /* adjust down from header */
+    width: fit-content; /* shrink to fit links */
+
+}
+
+
+
+
+        /* Header & Navigation */
+header {
+    position: absolute; /* sits over hero image */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    background: transparent; /* transparent header */
+    z-index: 1000;
+    padding: 1rem 0;
+    transition: all 0.3s ease;
+}
 
         header.scrolled {
             background: rgba(255,255,255,0.95);
@@ -119,21 +107,26 @@
             transition: height 0.3s ease;
         }
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-            margin: 0;
-            padding: 0;
-        }
 
-        .nav-links a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            position: relative;
-        }
+
+
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333; /* darker text for light background */
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+
 
         .nav-links a:hover {
             color: var(--main-color);
@@ -163,9 +156,10 @@
             color: var(--main-color);
         }
 
+        /* Hero Section */
         .hero {
-            background: url("image/bg.png") no-repeat center center;
-            background-size: cover;
+           background: url("image/bg.png") no-repeat center center;
+    background-size: cover; /* makes sure the image covers full area */
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -193,15 +187,13 @@
             font-weight: normal;
             margin: 0 0 1rem 0;
             color: var(--main-color);
-            font-family: 'Garamond', serif;
         }
 
         .hero p {
             font-size: clamp(1rem, 2vw, 1.3rem);
             margin-bottom: 2rem;
             max-width: 600px;
-            color: var(--accent-color);
-            font-family: 'Garamond', serif;
+            color: var(--light-text-color);
         }
 
         .cta-button {
@@ -223,20 +215,29 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
-        section {
+        /* Sections */
+        .services, .wellness-packages, .why-choose, .detailed-services {
             padding: 100px 0;
         }
 
         .services, .why-choose, .detailed-services {
-            background: var(--accent-color);
+            background:var(--accent-color);
         }
 
         .wellness-packages {
             background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-color) 50%, var(--main-color) 100%);
         }
 
+        .wellness-packages .card-image img {
+            transition: transform 0.5s ease;
+        }
+
+        .wellness-packages .card-image:hover img {
+            transform: scale(1.03);
+        }
+
         .section-title {
-            font-family: 'Garamond', serif;
+font-family:garamond,serif;
             text-align: center;
             font-size: clamp(2rem, 4vw, 2.5rem);
             color: var(--main-color);
@@ -256,7 +257,8 @@
             border-radius: 2px;
         }
 
-        .services-grid, .research-grid {
+        /* Services Grid */
+        .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
@@ -274,8 +276,12 @@
         }
 
         .service-card:hover {
-            transform: scale(1.05);
+            transform: scale(1.05); /* zoom entire card */
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-card:hover .service-card-image {
+            transform: scale(1.05);
         }
 
         .service-card-image {
@@ -283,10 +289,6 @@
             height: 300px;
             object-fit: cover;
             transition: transform 0.5s ease;
-        }
-
-        .service-card:hover .service-card-image {
-            transform: scale(1.05);
         }
 
         .service-card-content {
@@ -298,13 +300,13 @@
             color: var(--main-color);
             margin-bottom: 1rem;
             font-size: 1.5rem;
-            font-family: 'Garamond', serif;
         }
 
         .service-card-content p {
             margin-bottom: 1rem;
         }
 
+        /* New Card Container Styles for Packages Section */
         .card-container {
             max-width: 1300px;
             margin: 0 auto;
@@ -329,6 +331,7 @@
             box-shadow: 0 12px 30px rgba(0,0,0,0.09);
         }
 
+        /* IMAGE BLOCK */
         .card-image {
             flex: 0 0 48%;
             display: flex;
@@ -358,6 +361,7 @@
             border-bottom-right-radius: var(--img-radius);
         }
 
+        /* CONTENT BLOCK */
         .card-content {
             flex: 1 1 52%;
             padding: clamp(16px, 2.6vw, 28px);
@@ -369,10 +373,9 @@
 
         .card h2 {
             margin: 0;
-            color: var(--main-color);
+            color: #222;
             font-size: clamp(20px, 2.6vw, 26px);
             line-height: 1.15;
-            font-family: 'Garamond', serif;
         }
 
         .card p {
@@ -381,6 +384,7 @@
             line-height: 1.5;
         }
 
+        /* Package Features */
         .package-features {
             list-style: none;
             padding: 0;
@@ -398,16 +402,24 @@
             content: '•';
             position: absolute;
             left: 0;
-            color: #fff;
+            color: #fffff;
             font-weight: bold;
             font-size: 1.2rem;
         }
 
+        /* Research Section */
         .research {
             padding: 100px 0;
             background: var(--accent-color);
             color: white;
             text-align: center;
+        }
+
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
         }
 
         .research-card {
@@ -431,6 +443,7 @@
             opacity: 0.9;
         }
 
+        /* Outcome Cards */
         .outcome-card {
             background: rgba(255, 255, 255, 0.1);
             border-radius: 20px;
@@ -439,21 +452,13 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
             transition: all 0.3s ease;
             text-align: center;
-            margin: 2rem auto;
-            max-width: 800px;
+            margin: 2rem 0;
         }
 
         .outcome-card:hover {
             transform: translateY(-5px);
             background: rgba(255, 255, 255, 0.15);
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-        }
-
-        .outcome-card h3 {
-            color: white;
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-            font-family: 'Garamond', serif;
         }
 
         .outcome-list {
@@ -472,7 +477,6 @@
             justify-content: center;
             margin-bottom: 1rem;
             line-height: 1.6;
-            color: var(--light-text-color);
         }
 
         .outcome-list li i {
@@ -486,6 +490,7 @@
             font-weight: 600;
         }
 
+        /* Detailed Services */
         .detailed-services-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -529,7 +534,7 @@
         }
 
         .detailed-service-title {
-            font-family: 'Garamond', serif;
+font-family:garamond,serif;
             font-size: 1.8rem;
             margin-bottom: 20px;
             color: var(--main-color);
@@ -543,6 +548,7 @@
             flex-grow: 1;
         }
 
+        /* Mobile Carousel */
         .mobile-carousel {
             display: none;
             position: relative;
@@ -581,6 +587,7 @@
             background: var(--coral-color);
         }
 
+        /* Footer */
         .new-footer-section {
             background-color: var(--footer-bg-color);
             padding: 60px 0;
@@ -662,6 +669,7 @@
             margin-bottom: 0.5rem;
         }
 
+        /* Main Footer */
         footer {
             background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-color) 50%, var(--main-color) 100%);
             color: var(--light-text-color);
@@ -687,6 +695,7 @@
             margin-top: 2rem;
         }
 
+        /* WhatsApp Button */
         .whatsapp-btn {
             position: fixed;
             bottom: 20px;
@@ -710,6 +719,7 @@
             transform: scale(1.1);
         }
 
+        /* Animation */
         [data-animated] {
             opacity: 0;
             transform: translateY(30px);
@@ -721,12 +731,16 @@
             transform: translateY(0);
         }
 
+        /* Media Queries for Responsiveness */
+
+        /* Desktop Alternate Layout (769px and up) */
         @media (min-width: 769px) {
             .card:nth-child(even) {
                 flex-direction: row-reverse;
             }
         }
 
+        /* Tablet & Large Screen Optimizations */
         @media (max-width: 1024px) {
             .card-image img {
                 max-width: 520px;
@@ -737,6 +751,7 @@
             }
         }
 
+        /* Mobile Responsive Styles (768px and below) */
         @media (max-width: 768px) {
             header {
                 padding: 0.8rem 0;
@@ -747,26 +762,36 @@
                 height: 60px;
             }
 
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 80px;
-                left: 0;
-                right: 0;
-                background: var(--card-bg-color);
-                flex-direction: column;
-                padding: 1rem;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-                z-index: 999;
-            }
+    .nav-links {
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 1rem;           /* reduce spacing */
+    }
+    .nav-links a {
+        font-size: 14px;     /* slightly smaller font */
+    }
+
+
+     .mobile-menu-btn {
+        display: none !important; /* hide hamburger */
+    }
+}
+
+     .menu-bar {
+        width: 100%;
+        overflow-x: auto;    /* allow horizontal scroll if needed */
+        white-space: nowrap; /* keep items in one line */
+        justify-content: flex-start;
+        padding: 0.5rem 1rem;
+    }
+
+
+
 
             .nav-links.active {
                 display: flex;
             }
 
-            .mobile-menu-btn {
-                display: block;
-            }
 
             .hero {
                 padding-top: 80px;
@@ -851,20 +876,21 @@
     <header>
         <nav class="container">
             <a href="#home" class="logo" aria-label="PS4Wellbeing Home">
-                <img src="image/lg2.png" class="logo-image" alt="PS4Wellbeing Logo" loading="lazy">
+                <img src="image/lg2.png" class="logo-image" alt="PS4Wellbeing Logo">
             </a>
-            <div class="menu-bar">
-                <ul class="nav-links" id="mobile-menu-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#packages">Programs</a></li>
-                    <li><a href="#research">Research</a></li>
-                    <li><a href="#detailed-services">Our Expertise</a></li>
-                    <li><a href="blog.html" id="blog-link">Blog</a></li>
-                    <li><a href="https://wa.me/+97466648078" target="_blank" rel="noopener noreferrer">Free Consult</a></li>
-                    <li><a href="#contact-details">Contact</a></li>
-                </ul>
-            </div>
+           <div class="menu-bar">
+  <ul class="nav-links" id="mobile-menu-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#packages">Programs</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#detailed-services">Our Expertise</a></li>
+      <li><a href="blog.html" id="blog-link">Blog</a></li>
+      <li><a href="https://wa.me/+97466648078" target="_blank">Free Consult</a></li>
+      <li><a href="#contact-details">Contact</a></li>
+  </ul>
+</div>
+
             <button class="mobile-menu-btn" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobile-menu-links">☰</button>
         </nav>
     </header>
@@ -873,9 +899,9 @@
         <section id="home" class="hero">
             <div class="container">
                 <div class="hero-content">
-                    <img src="image/lgh1.png" alt="Positive Synergy 4 Wellbeing" class="heading-logo" loading="lazy" />
-                    <h1 class="h1-size-text">Positive Synergy for Wellbeing</h1>
-                    <p data-animated>Transformative programs for individuals and organizations. Helping people thrive emotionally, mentally, socially, and professionally through evidence-based wellbeing solutions.</p>
+                    <img src="image/lgh1.png" alt="Positive Synergy 4 Wellbeing" class="heading-logo" />
+                    <h1 style="font-family:garamond,serif;" class="h1-size-text">Positive Synergy for Wellbeing</h1>
+                    <p style="font-family:garamond,serif;color:#aea781;" data-animated>Transformative programs for individuals and organizations. Helping people thrive emotionally, mentally, socially, and professionally through evidence-based wellbeing solutions.</p>
                     <a href="#services" class="cta-button" data-animated>Explore Our Services</a>
                 </div>
             </div>
@@ -888,7 +914,7 @@
                     <div class="service-card" data-animated>
                         <img src="image/1.jpeg" alt="Corporate Training" class="service-card-image" loading="lazy">
                         <div class="service-card-content">
-                            <h3>Corporate Training</h3>
+                            <h3 style="font-family:garamond,serif; ">Corporate Training</h3>
                             <p>We partner with organizations to deliver immersive wellbeing workshops that boost employee engagement, resilience, and emotional intelligence. Our training is tailored to your team’s needs and includes :</p>
                             <ul class="package-features">
                                 <li>On-site or virtual workshops</li>
@@ -901,7 +927,7 @@
                     <div class="service-card" data-animated>
                         <img src="image/14.jpeg" alt="1:1 Coaching" class="service-card-image" loading="lazy">
                         <div class="service-card-content">
-                            <h3>1:1 Coaching</h3>
+                            <h3 style="font-family:garamond,serif; ">1:1 Coaching</h3>
                             <p>Our certified coaches offer personalized support to help individuals navigate life's challenges and achieve their fullest potential :</p>
                             <ul class="package-features">
                                 <li>Navigate life transitions</li>
@@ -914,7 +940,7 @@
                     <div class="service-card" data-animated>
                         <img src="image/2.jpg" alt="Women Wellness Circle" class="service-card-image" loading="lazy">
                         <div class="service-card-content">
-                            <h3>Women Wellness Circle</h3>
+                            <h3 style="font-family:garamond,serif; ">Women Wellness Circle</h3>
                             <p>We offer exclusive group wellness training sessions for women, focused on emotional balance and clarity :</p>
                             <ul class="package-features">
                                 <li>These sessions provide a supportive, women only environment</li>
@@ -935,7 +961,7 @@
                             <img src="image/17.jpg" alt="Wellness Foundations" loading="lazy">
                         </div>
                         <div class="card-content" style="background-color: #aea781;">
-                            <h2>Wellness Foundations</h2>
+                            <h2 style="font-family:garamond,serif;">Wellness Foundations</h2>
                             <p>Based on the PERMA model by Dr. Martin Seligman, this module helps individuals build a flourishing life.</p>
                             <ul class="package-features">
                                 <li>Healthy Habits: Nutrition, sleep, movement</li>
@@ -952,7 +978,7 @@
                             <img src="image/12.jpg" alt="Positive Psychology" loading="lazy">
                         </div>
                         <div class="card-content" style="background-color: #aea781;">
-                            <h2>Positive Psychology</h2>
+                            <h2 style="font-family:garamond,serif;">Positive Psychology</h2>
                             <p>Grounded in the science of human flourishing and evidence-based practices for lasting wellbeing.</p>
                             <ul class="package-features">
                                 <li>Introduction to Positive Psychology</li>
@@ -969,7 +995,7 @@
                             <img src="image/18.png" alt="Emotional Intelligence" loading="lazy">
                         </div>
                         <div class="card-content" style="background-color: #aea781;">
-                            <h2>Emotional Intelligence</h2>
+                            <h2 style="font-family:garamond,serif;">Emotional Intelligence</h2>
                             <p>Inspired by Daniel Goleman's framework for understanding and managing emotions effectively.</p>
                             <ul class="package-features">
                                 <li>The Sailboat Metaphor for emotional navigation</li>
@@ -986,7 +1012,7 @@
                             <img src="image/19.jpeg" alt="Mindfulness Mastery" loading="lazy">
                         </div>
                         <div class="card-content" style="background-color: #aea781;">
-                            <h2>Mindfulness Mastery</h2>
+                            <h2 style="font-family:garamond,serif;">Mindfulness Mastery</h2>
                             <p>Backed by research from Oxford and Harvard, integrating mindfulness into daily life and work.</p>
                             <ul class="package-features">
                                 <li>Introduction to Mindfulness</li>
@@ -1003,7 +1029,7 @@
                             <img src="image/16.jpeg" alt="Job Crafting" loading="lazy">
                         </div>
                         <div class="card-content" style="background-color: #aea781;">
-                            <h2>Job Crafting</h2>
+                            <h2 style="font-family:garamond,serif;">Job Crafting</h2>
                             <p>Based on research by Wrzesniewski & Dutton to redesign your work for greater satisfaction.</p>
                             <ul class="package-features">
                                 <li>Clarifying Values, Strengths & Interests</li>
@@ -1019,7 +1045,7 @@
                             <img src="image/15.jpeg" alt="Resilience Building" loading="lazy">
                         </div>
                         <div class="card-content" style="background-color: #aea781;">
-                            <h2>Resilience Building</h2>
+                            <h2 style="font-family:garamond,serif;">Resilience Building</h2>
                             <p>Informed by the Job Demands–Resources model for navigating adversity and stress.</p>
                             <ul class="package-features">
                                 <li>Sailboat Metaphor for navigating adversity</li>
@@ -1041,7 +1067,7 @@
                     <div class="outcome-icon">
                         <i class="fas fa-building" style="font-size: 3rem; color: rgba(255,255,255,0.9); margin-bottom: 1rem;"></i>
                     </div>
-                    <h3>Organizational Outcomes</h3>
+                    <h3 style="color: white; margin-bottom: 1.5rem; font-size: 1.5rem; font-family:garamond,serif;">Organizational Outcomes</h3>
                 </div>
                 <div class="research-grid">
                     <div class="research-card" data-animated>
@@ -1086,7 +1112,7 @@
                         <div class="outcome-icon">
                             <i class="fas fa-user-check" style="font-size: 3rem; color: rgba(255,255,255,0.9); margin-bottom: 1rem;"></i>
                         </div>
-                        <h3>Individual Outcomes</h3>
+                        <h3 style="color: white; margin-bottom: 1.5rem; font-size: 1.5rem; font-family:garamond,serif;">Individual Outcomes</h3>
                         <div class="individual-outcomes">
                             <ul class="outcome-list">
                                 <li><i class="fas fa-users"></i><strong>Stronger relationships and social support</strong></li>
@@ -1113,7 +1139,9 @@
                         </div>
                         <div class="detailed-service-content">
                             <h3 class="detailed-service-title">Evidence-Based</h3>
-                            <p class="detailed-service-description">Our programs are rooted in psychological research and proven models, ensuring scientifically-backed methods that drive real, measurable wellbeing improvement.</p>
+                            <p class="detailed-service-description">
+                                Our programs are rooted in psychological research and proven models, ensuring scientifically-backed methods that drive real, measurable wellbeing improvement.
+                            </p>
                         </div>
                     </div>
                     <div class="detailed-service-card">
@@ -1122,7 +1150,9 @@
                         </div>
                         <div class="detailed-service-content">
                             <h3 class="detailed-service-title">Customizable</h3>
-                            <p class="detailed-service-description">We tailor every session to your needs, goals, and culture—delivering unique solutions for individuals, teams, and organizations alike.</p>
+                            <p class="detailed-service-description">
+                                We tailor every session to your needs, goals, and culture—delivering unique solutions for individuals, teams, and organizations alike.
+                            </p>
                         </div>
                     </div>
                     <div class="detailed-service-card">
@@ -1131,7 +1161,9 @@
                         </div>
                         <div class="detailed-service-content">
                             <h3 class="detailed-service-title">Engaging</h3>
-                            <p class="detailed-service-description">Interactive workshops, real-life exercises, and practical tools create high-impact, participant-driven experiences that spark learning and emotional connection.</p>
+                            <p class="detailed-service-description">
+                                Interactive workshops, real-life exercises, and practical tools create high-impact, participant-driven experiences that spark learning and emotional connection.
+                            </p>
                         </div>
                     </div>
                     <div class="detailed-service-card">
@@ -1140,7 +1172,9 @@
                         </div>
                         <div class="detailed-service-content">
                             <h3 class="detailed-service-title">Lasting Impact</h3>
-                            <p class="detailed-service-description">We focus on sustainable transformation, equipping you with tools, habits, and mindsets that support long-term personal and professional wellbeing.</p>
+                            <p class="detailed-service-description">
+                                We focus on sustainable transformation, equipping you with tools, habits, and mindsets that support long-term personal and professional wellbeing.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -1154,7 +1188,9 @@
                                 </div>
                                 <div class="detailed-service-content">
                                     <h3 class="detailed-service-title">Evidence-Based</h3>
-                                    <p class="detailed-service-description">Our programs are rooted in psychological research and proven models, ensuring scientifically-backed methods that drive real, measurable wellbeing improvement.</p>
+                                    <p class="detailed-service-description">
+                                        Our programs are rooted in psychological research and proven models, ensuring scientifically-backed methods that drive real, measurable wellbeing improvement.
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -1165,7 +1201,9 @@
                                 </div>
                                 <div class="detailed-service-content">
                                     <h3 class="detailed-service-title">Customizable</h3>
-                                    <p class="detailed-service-description">We tailor every session to your needs, goals, and culture—delivering unique solutions for individuals, teams, and organizations alike.</p>
+                                    <p class="detailed-service-description">
+                                        We tailor every session to your needs, goals, and culture—delivering unique solutions for individuals, teams, and organizations alike.
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -1176,7 +1214,9 @@
                                 </div>
                                 <div class="detailed-service-content">
                                     <h3 class="detailed-service-title">Engaging</h3>
-                                    <p class="detailed-service-description">Interactive workshops, real-life exercises, and practical tools create high-impact, participant-driven experiences that spark learning and emotional connection.</p>
+                                    <p class="detailed-service-description">
+                                        Interactive workshops, real-life exercises, and practical tools create high-impact, participant-driven experiences that spark learning and emotional connection.
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -1187,7 +1227,9 @@
                                 </div>
                                 <div class="detailed-service-content">
                                     <h3 class="detailed-service-title">Lasting Impact</h3>
-                                    <p class="detailed-service-description">We focus on sustainable transformation, equipping you with tools, habits, and mindsets that support long-term personal and professional wellbeing.</p>
+                                    <p class="detailed-service-description">
+                                        We focus on sustainable transformation, equipping you with tools, habits, and mindsets that support long-term personal and professional wellbeing.
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -1209,9 +1251,13 @@
                         <a href="#home" class="ps4wellbeing-logo">
                             <img src="image/lg2.png" alt="PS4Wellbeing Logo" loading="lazy">
                         </a>
-                        <p>Our approach is rooted in the principles of Neuro-Linguistic Programming and Emotional Intelligence, combining these powerful methodologies to foster overall development as a person.</p>
+                        <p>
+                            Our approach is rooted in the principles of Neuro-Linguistic Programming
+                            and Emotional Intelligence, combining these powerful methodologies to
+                            foster overall development as a person.
+                        </p>
                         <div class="social-icons">
-                            <a href="https://wa.me/97466648078" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
+                            <a href="https://wa.me/97466648078" aria-label="WhatsApp" target="_blank">
                                 <i class="fab fa-whatsapp"></i>
                             </a>
                             <a href="mailto:ps4wellbeing@gmail.com" aria-label="Gmail">
@@ -1229,7 +1275,7 @@
                                 <li><a href="#research">Research</a></li>
                                 <li><a href="#detailed-services">Our Expertise</a></li>
                                 <li><a href="blog.html">Blog</a></li>
-                                <li><a href="https://wa.me/+917994144334" target="_blank" rel="noopener noreferrer">Free Consult</a></li>
+                                <li><a href="https://wa.me/+917994144334" target="_blank">Free Consult</a></li>
                                 <li><a href="#contact-details">Contact</a></li>
                             </ul>
                         </div>
@@ -1239,7 +1285,7 @@
                                 <li><a href="#services">Corporate Training</a></li>
                                 <li><a href="#services">Women Wellness circle</a></li>
                                 <li><a href="#services">1:1 Coaching</a></li>
-                                <li><a href="https://wa.me/+917994144334" target="_blank" rel="noopener noreferrer">Free Consult</a></li>
+                                <li><a href="https://wa.me/+917994144334" target="_blank">Free Consult</a></li>
                             </ul>
                         </div>
                     </div>
@@ -1262,7 +1308,14 @@
                 </div>
                 <div class="footer-section">
                     <h4>Services</h4>
-                    <p>Corporate Training<br>Women Wellness circle<br>1:1 Coaching<br>Free Consult</p>
+                    <p>
+    Corporate Training<br>
+ Women Wellness circle<br>
+                        1:1 Coaching<br>
+                        Free Consult<br>
+                       
+                      
+                    </p>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -1275,17 +1328,19 @@
         <img src="image/w.png" alt="WhatsApp" style="width: 30px; height: 30px;">
     </a>
 
-    <script defer>
+    <script>
+        // Mobile menu toggle
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const navLinks = document.querySelector('.nav-links');
 
         if (mobileMenuBtn && navLinks) {
             mobileMenuBtn.addEventListener('click', () => {
-                const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+                const isExpanded = mobileMenuBtn.getAttribute('aria-expanded') === 'true' || false;
                 mobileMenuBtn.setAttribute('aria-expanded', !isExpanded);
                 navLinks.classList.toggle('active');
             });
 
+            // Close menu when a link is clicked
             document.querySelectorAll('.nav-links a').forEach(link => {
                 link.addEventListener('click', () => {
                     if (navLinks.classList.contains('active')) {
@@ -1296,6 +1351,7 @@
             });
         }
 
+        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1309,6 +1365,7 @@
             });
         });
 
+        // Header background on scroll
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
             if (window.scrollY > 100) {
@@ -1318,6 +1375,7 @@
             }
         });
 
+        // Fade-in animation on scroll
         const animatedObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1331,12 +1389,14 @@
             animatedObserver.observe(el);
         });
 
+        // Animated counter for statistics
         function animateCounters() {
             const counters = document.querySelectorAll('.stat-number');
             counters.forEach(counter => {
                 const target = parseInt(counter.textContent);
                 const increment = target / 100;
                 let current = 0;
+
                 const updateCounter = () => {
                     if (current < target) {
                         current += increment;
@@ -1346,6 +1406,7 @@
                         counter.textContent = target + '%';
                     }
                 };
+
                 updateCounter();
             });
         }
@@ -1364,6 +1425,7 @@
             researchObserver.observe(researchSection);
         }
 
+        // Mobile Carousel functionality
         let currentSlide = 0;
         const totalSlides = 4;
         const carouselContainer = document.getElementById('carouselContainer');
@@ -1405,12 +1467,14 @@
             if (carouselContainer) {
                 const translateX = -currentSlide * 25;
                 carouselContainer.style.transform = `translateX(${translateX}%)`;
+                
                 indicators.forEach((indicator, index) => {
                     indicator.classList.toggle('active', index === currentSlide);
                 });
             }
         }
 
+        // Touch/swipe functionality
         let startX = 0;
         let startY = 0;
         let isDragging = false;
@@ -1432,10 +1496,12 @@
             carouselContainer.addEventListener('touchend', (e) => {
                 if (!isDragging) return;
                 isDragging = false;
+                
                 const endX = e.changedTouches[0].clientX;
                 const endY = e.changedTouches[0].clientY;
                 const diffX = startX - endX;
                 const diffY = startY - endY;
+                
                 if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
                     if (diffX > 0) {
                         currentSlide = (currentSlide + 1) % totalSlides;
@@ -1444,6 +1510,7 @@
                     }
                     updateCarousel();
                 }
+                
                 setTimeout(() => {
                     isAutoPlaying = true;
                     startAutoPlay();
@@ -1451,6 +1518,7 @@
             });
         }
 
+        // Handle window resize
         window.addEventListener('resize', () => {
             stopAutoPlay();
             if (window.innerWidth <= 768) {
@@ -1458,13 +1526,15 @@
             }
         });
 
+        // Initialize carousel
         if (window.innerWidth <= 768) {
             startAutoPlay();
         }
 
+        // Pause auto-play when page is not visible
         document.addEventListener('visibilitychange', () => {
             if (document.hidden) {
-                stopAutoPlay();
+                stopAutoPlay(); 
             } else if (window.innerWidth <= 768) {
                 startAutoPlay();
             }
