@@ -46,6 +46,7 @@
             color: var(--text-color);
             overflow-x: hidden;
             font-size: 16px;
+
         }
 
         .container {
@@ -71,7 +72,6 @@
     position: relative;
     top: 20px; /* adjust down from header */
     width: fit-content; /* shrink to fit links */
-
 }
 
 
@@ -755,46 +755,36 @@ font-family:garamond,serif;
         @media (max-width: 768px) {
             header {
                 padding: 0.8rem 0;
-                height: 80px;
+                height: 10px;
             }
 
             .logo-image {
                 height: 60px;
             }
 
-    .nav-links {
-        display: flex !important;
-        flex-direction: row !important;
-        gap: 1rem;           /* reduce spacing */
-    }
-    .nav-links a {
-        font-size: 14px;     /* slightly smaller font */
-    }
-
-
-     .mobile-menu-btn {
-        display: none !important; /* hide hamburger */
-    }
-}
-
-     .menu-bar {
-        width: 100%;
-        overflow-x: auto;    /* allow horizontal scroll if needed */
-        white-space: nowrap; /* keep items in one line */
-        justify-content: flex-start;
-        padding: 0.5rem 1rem;
-    }
-
-
-
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 80px; /* Adjusted to header height */
+                left: 0;
+                right: 0;
+                background: var(--card-bg-color);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+                z-index: 999;
+            }
 
             .nav-links.active {
                 display: flex;
             }
 
+            .mobile-menu-btn {
+                display: block;
+            }
 
             .hero {
-                padding-top: 80px;
+                padding-top: ;
                 min-height: 90vh;
             }
 
