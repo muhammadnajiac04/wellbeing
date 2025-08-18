@@ -121,31 +121,30 @@ header {
 
 .nav-links a {
     text-decoration: none;
-    color: #333; /* darker text for light background */
+    color: #333; /* or var(--text-color) */
     font-weight: 500;
     transition: color 0.3s ease;
+    position: relative; /* important for underline positioning */
 }
-
 
 
         .nav-links a:hover {
             color: var(--main-color);
         }
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(45deg, var(--main-color), var(--secondary-color));
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(45deg, var(--main-color), var(--secondary-color));
+    transition: width 0.3s ease;
+}
+.nav-links a:hover::after {
+    width: 100%;
+}
 
         .mobile-menu-btn {
             display: none;
